@@ -1,0 +1,29 @@
+.navbar-sanctuary {
+    background-color: #2e004f !important;
+}
+
+.navbar-sanctuary .nav-link, 
+.navbar-sanctuary .navbar-brand {
+    color: #ffffff !important; 
+}
+
+.navbar-brand img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); 
+    margin-right: 10px; 
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+.montecarlo-regular {
+  font-family: "MonteCarlo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+ font-size: 4em;
+}
