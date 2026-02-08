@@ -1,3 +1,18 @@
+:root {
+    --background: #fdfbf7; 
+    --accentGlow: #9d81a5; /* petal purple */
+    --text: #0d1b0e; /* deep moss */
+    --highlight: #a8d5ba; /* soft mint */
+    --contrast: #4a5d4e; /* weathered leaf */
+    --detail: #2e4033; /* dark ivy */
+    --callToAct: #6b4f7d; /* royal purple */
+    --hover: #e9ecef; /* silver-grey */
+    --border: #b2babb; /*chainmail silver */
+    --radius: 20px;
+    --scrim: rgba(255, 255, 255, 0.6); 
+}
+
+
 .navbar-sanctuary {
     background-color: #2e004f !important;
 }
@@ -23,7 +38,20 @@
   font-weight: 400;
   font-style: normal;
 }
-
-h1 {
- font-size: 4em;
+#heroSection {
+    background: url(../images/pexels-golimpio-3686317.jpg);
+    height: 70vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    padding-top: 1em;
+}
+    #heroSection p {
+        color: var(--detail);
+}
+    #heroSection h1 {
+        color: var(--text);
+}
+#welcomeTitle {
+    background: var(--scrim); 
 }

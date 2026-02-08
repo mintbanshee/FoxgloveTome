@@ -48,15 +48,6 @@ $base_url = '/FoxgloveTome/';
   
 
 
-<div class="container mt-5">
-
-
-
-
-
-
-
-
 
 </body>
 </html>
