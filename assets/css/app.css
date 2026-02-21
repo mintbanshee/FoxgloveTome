@@ -1,15 +1,17 @@
 :root {
     --background: #fdfbf7; 
+    --navbackground: #2e004f; /* deep purple */
     --accentGlow: #9d81a5; /* petal purple */
     --text: #0d1b0e; /* deep moss */
-    --highlight: #a8d5ba; /* soft mint */
+    --highlight: #a2cbb4; /* soft mint */
     --contrast: #4a5d4e; /* weathered leaf */
     --detail: #2e4033; /* dark ivy */
     --callToAct: #6b4f7d; /* royal purple */
     --hover: #e9ecef; /* silver-grey */
     --border: #b2babb; /*chainmail silver */
     --radius: 20px;
-    --scrim: rgba(255, 255, 255, 0.6); 
+    --scrim: rgba(255, 255, 255, 0.8); 
+    --scrim2: rgba(0, 0, 0, 0.6);
 }
 
 
@@ -39,7 +41,7 @@
   font-style: normal;
 }
 #heroSection {
-    background: url(../images/pexels-golimpio-3686317.jpg);
+    background: url(../images/heroBG.jpg);
     height: 70vh;
     width: 100%;
     background-size: cover;
