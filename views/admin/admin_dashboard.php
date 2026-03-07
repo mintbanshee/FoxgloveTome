@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . '/../../auth/require_login.php'; ?>
+<?php 
+require_once __DIR__ . '/../../auth/require_login.php'; 
+include __DIR__ . '/../../header.php';
+?>
 
 <h1>Admin Dashboard</h1>
 
