@@ -2,7 +2,7 @@
 
 declare(strict_types=1); 
 
-$dsn = 'mysql:host=localhost;dbname=foxglovetome;charset=utf8mb4';
+$dsn = 'mysql:host=localhost;dbname=foxglove_tome;charset=utf8mb4';
 $username = 'root';
 $password = ''; 
 
