@@ -19,8 +19,9 @@ A focused page detailing my project progress can be found [on my portfolio](http
 * **Design**: Adobe Illustrator (Custom Logo)
 * **Thoughts & Details**: My trusty notebook 
 
-## 🌳 Project Structure
+## 🌿 Project Structure
 
+```
 FoxgloveTome/
 │
 ├── assets/
@@ -29,48 +30,48 @@ FoxgloveTome/
 │   └── logo/               Branding and logo assets
 │
 ├── auth/
-│   ├── forgot_password.php Handles the password reset request form
-│   ├── login.php           User login form
-│   ├── require_admin.php   Access guard for admin-only pages
-│   ├── require_login.php   Access guard for authenticated pages
-│   ├── reset_password.php  Password reset form using secure token
-│   └── signup.php          User registration form
+│   ├── forgot_password.php  Handles the password reset request form
+│   ├── login.php            User login form
+│   ├── require_admin.php    Access guard for admin-only pages
+│   ├── require_login.php    Access guard for authenticated pages
+│   ├── reset_password.php   Password reset form using secure token
+│   └── signup.php           User registration form
 │
 ├── config/
-│   └── app.php             Application configuration and global settings
+│   └── app.php              Application configuration and global settings
 │
 ├── controllers/
-│   ├── admin_controller.php Handles admin actions and admin routes
-│   ├── auth_controller.php  Processes login, signup, logout, and password reset logic
-│   └── entry_controller.php Handles journal entry creation and management
+│   ├── admin_controller.php Handles admin actions and routes
+│   ├── auth_controller.php  Handles login, signup, logout, reset logic
+│   └── entry_controller.php Handles journal entry creation
 │
 ├── db/
-│   └── database.php        Database connection using PDO
+│   └── database.php         Database connection using PDO
 │
 ├── models/
-│   ├── Garden.php          Model for the garden system (visual growth / future features)
-│   ├── JournalEntry.php    Model for journal entry data and database interactions
-│   └── User.php            Model for user accounts and authentication data
+│   ├── Garden.php           Model for the garden system
+│   ├── JournalEntry.php     Model for journal entry data
+│   └── User.php             Model for user accounts
 │
 ├── src/
-│   └── package.json        Frontend dependencies or build configuration
+│   └── package.json         Frontend dependencies
 │
 ├── views/
 │   ├── admin/
-│   │   └── admin_dashboard.php  Dashboard for administrative users
+│   │   └── admin_dashboard.php  Admin dashboard
 │   │
 │   ├── journal/
-│   │   └── new_entry.php        Form for creating a new journal entry
+│   │   └── new_entry.php        Form for creating a journal entry
 │   │
 │   └── users/
 │       └── user_dashboard.php   Dashboard for logged-in users
 │
-├── header.php              Shared site header template
-├── footer.php              Shared site footer template
-├── index.php               Main entry point for the application
-├── notes.md                Development notes and planning
+├── header.php              Shared site header
+├── footer.php              Shared site footer
+├── index.php               Application entry point
+├── notes.md                Development notes
 └── README.md               Project documentation
-
+```
 
 ---
 *Created with care by **MintBanshee** (Alexandria) as part of a Web & App Development Capstone project.*
