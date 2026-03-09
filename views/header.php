@@ -23,7 +23,7 @@ require_once __DIR__ . '/../config/app.php';
 <nav class="navbar navbar-expand-lg navbar-sanctuary navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
-      <img src="<?php echo BASE_URL; ?>/assets/logo/FoxgloveTome.svg" alt="Foxglove tome logo - a branch of foxglove flowers standing guard infront of an open journal" width="40" height="40">
+      <img src="<?php echo BASE_URL; ?>assets/logo/FoxgloveTome.svg" alt="Foxglove tome logo - a branch of foxglove flowers standing guard infront of an open journal" width="40" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +32,8 @@ require_once __DIR__ . '/../config/app.php';
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="<?php echo BASE_URL; ?>/assets/images/icons/accountWhite.png" alt="Account icon button - click here to access your dashboard" width="40" height="40">
+          <a class="nav-link" href="<?= BASE_URL ?>views/users/user_dashboard.php">
+            <img src="<?php echo BASE_URL; ?>assets/images/icons/accountWhite.png" alt="Account icon button - click here to access your dashboard" width="40" height="40">
           </a>
         </li>
 

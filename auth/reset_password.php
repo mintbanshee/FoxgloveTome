@@ -15,11 +15,11 @@ declare(strict_types=1);
 <h1>Reset Password</h1>
 
 <?php if (!empty($errors)): ?>
-    <ul>
+    <div class="error-messages">
         <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
+            <p><?= htmlspecialchars($error) ?></p>
         <?php endforeach; ?>
-    </ul>
+    </div>
 <?php endif; ?>
 
 <?php if (!empty($message)): ?>

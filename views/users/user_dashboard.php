@@ -1,3 +1,5 @@
+<!-- User Dashboard View -->
+
 <?php 
 require_once __DIR__ . '/../../auth/require_login.php';
 require_once __DIR__ . '/../../models/JournalEntry.php';
@@ -6,47 +8,70 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$userID = $_SESSION['user']['user_id'];
+include __DIR__ . '/../header.php';
+
+$userId = $_SESSION['user']['user_id'];
 $username = $_SESSION['user']['username'];
 
 $journalEntry = new JournalEntry();
-$entries = $journalEntry->getEntriesByUser($userID);
+$entries = $journalEntry->getEntriesByUser($userId);
 
-include __DIR__ . '/../../header.php'; 
 ?>
 
 
-
-<h1>User Dashboard</h1>
+<div class="container py-5">
 
 <!-- Welcome Message and User Info -->
-<p>Welcome <?= htmlspecialchars($username) ?></p>
 
+    <div class="mb-4 text-center">
+        <h1>My Dashboard</h1>
+        <p>Welcome back, <?= htmlspecialchars($username) ?></p>
+    </div>
 
+<!-- Weekly Mood Summary -->
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">Weekly Mood Summary</h5>
+            <p class="text-muted">Here's a summary of your moods for the past week:</p>
+        </div>
+    </div>
 
-<!-- Journal Entries -->
-<h2>Your Journal Entries</h2>
-<?php if (empty($entries)): ?>
-    <p>You have no journal entries yet.</p> 
-<?php else: ?>
-    <ul>
-        <?php foreach ($entries as $entry): ?>
-            <li>
-                <h3><?= htmlspecialchars($entry['title']) ?></h3>
-                <p><?= nl2br(htmlspecialchars($entry['content'])) ?></p>
-                <p><strong>Mood:</strong> <?= htmlspecialchars($entry['mood_category']) ?> - <?= htmlspecialchars($entry['mood']) ?></p>
-                <p><em>Created on: <?= htmlspecialchars($entry['date_created']) ?></em></p>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+<!-- Recent Journal Entries -->
+    <h3>My Journal</h3>
+    <?php if (empty($entries)): ?>
+        <div class="alert alert-light border">
+            You have no journal entries yet. Start by creating your first entry!
+        </div>
+    <?php else: ?>
 
+        <div class="list-group">
+            <?php foreach ($entries as $entry): ?>
+                <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=view_entry&id=<?= $entry['entry_id'] ?>" class="text-decoration-none text-dark">
+                
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p class="text-muted"><?= htmlspecialchars($entry['date_created']) ?></p>
+                            <h5 class="mt-2"><?= htmlspecialchars($entry['title']) ?></h5>
+                            <span><?= htmlspecialchars($entry['mood']) ?></span>
+                            <p><?= substr(htmlspecialchars($entry['content']), 0, 120) ?>...</p>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
+<!-- Dashboard Buttons -->
+    <div class="mt-4 d-flex justify-content-center gap-3">
+        <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout" class="btn btn-outline-secondary">
+Logout
+</a>
+        <a href="#" class="btn btn-secondary">Filter</a>
+        <a href="#" class="btn btn-secondary">My Garden</a>
+        <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=create" class="btn btn-dark">
+            + New Entry
+        </a>
+    </div>
 
+</div>
 
-
-
-
-
-
-<a href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout">Logout</a>

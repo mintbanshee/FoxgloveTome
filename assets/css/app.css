@@ -40,19 +40,33 @@
   font-style: normal;
 }
 #heroSection {
-    background: url(../images/heroBG.jpg);
-    height: 70vh;
-    width: 100%;
+    background: url("../images/HeroBGDark.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    width: 100%;
     padding-top: 1em;
+    position: relative;
 }
-    #heroSection p {
-        color: var(--detail);
+
+#heroSection p {
+    color: var(--detail);
 }
-    #heroSection h1 {
-        color: var(--text);
+
+#heroSection h1 {
+    color: var(--text);
 }
+
 #welcomeTitle {
-    background: var(--scrim); 
+    background: var(--scrim);
+    position: relative;
+    z-index: 1;
+}
+
+#welcomeMessage {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }

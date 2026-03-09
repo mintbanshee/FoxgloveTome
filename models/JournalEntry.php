@@ -37,16 +37,30 @@ class JournalEntry {
     ]);
   }
 
+  // retrieve all journal entries for a specific user
   public function getEntriesByUser(int $userId): array {
     $sql = "SELECT * 
             FROM journalEntries 
             WHERE user_id = :user_id 
             ORDER BY date_created DESC";
 
-    $statement = $this->conn->prepare($sql);
+    $statement = $this->conn->prepare($sql); 
     $statement->execute([':user_id' => $userId]);
     
     return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  // retrieve a specific journal entry by its ID
+  public function getEntryById(int $entryId): ?array {
+    $sql = "SELECT * 
+            FROM journalEntries 
+            WHERE entry_id = :entry_id";
+
+    $statement = $this->conn->prepare($sql);
+    $statement->bindValue(':entry_id', $entryId, PDO::PARAM_INT); 
+    $statement->execute();
+    
+    $entry = $statement->fetch(PDO::FETCH_ASSOC);
+    return $entry ?: null; 
+  }
 }

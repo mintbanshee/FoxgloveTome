@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action') ?? '';
 
-    switch ($action) {
+switch ($action) {
 
     // Create a new journal entry
     case 'create':
@@ -46,4 +46,28 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
             header("Location: ../views/journal/new_entry.php");
             exit();
         }
+
+    // When user clicks on an entry from the dashboard, show the full entry with all details 
+ case "view_entry": 
+    $entryId = isset($_GET['id']) ? (int) $_GET['id'] : null;
+    $userId = $_SESSION['user']['user_id'];
+
+    if (!$entryId) {
+        $_SESSION['error'] = "Sorry, we could not find this entry.";
+        header("Location: ../views/users/user_dashboard.php");
+        exit();
     }
+
+    $journalEntry = new JournalEntry();
+    $entry = $journalEntry->getEntryById($entryId);
+
+    if (!$entry) {
+        $_SESSION['error'] = "Sorry, we could not find this entry.";
+        header("Location: ../views/users/user_dashboard.php");
+        exit();
+    }
+
+    require __DIR__ . '/../views/journal/view_entry.php';
+    break;
+    
+}

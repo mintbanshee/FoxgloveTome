@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../auth/require_login.php';
-include __DIR__ . '/../../header.php';
+include __DIR__ . '/../header.php';
 ?>
 
 <h2>New Journal Entry</h2>
