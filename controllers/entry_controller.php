@@ -48,26 +48,56 @@ switch ($action) {
         }
 
     // When user clicks on an entry from the dashboard, show the full entry with all details 
- case "view_entry": 
-    $entryId = isset($_GET['id']) ? (int) $_GET['id'] : null;
-    $userId = $_SESSION['user']['user_id'];
+    case "view_entry": 
+        $entryId = isset($_GET['id']) ? (int) $_GET['id'] : null;
+        $userId = $_SESSION['user']['user_id'];
 
-    if (!$entryId) {
-        $_SESSION['error'] = "Sorry, we could not find this entry.";
-        header("Location: ../views/users/user_dashboard.php");
-        exit();
-    }
+        if (!$entryId) {
+            $_SESSION['error'] = "Sorry, we could not find this entry.";
+            header("Location: ../views/users/user_dashboard.php");
+            exit();
+        }
 
-    $journalEntry = new JournalEntry();
-    $entry = $journalEntry->getEntryById($entryId);
+        // get entry and user info for the view entries page. 
+        // if there is no entry or it is not the correct user - redirect to dashboard with error message
+        $journalEntry = new JournalEntry();
+        $entry = $journalEntry->getEntryById($entryId, $userId);
 
-    if (!$entry) {
-        $_SESSION['error'] = "Sorry, we could not find this entry.";
-        header("Location: ../views/users/user_dashboard.php");
-        exit();
-    }
+        if (!$entry) {
+            $_SESSION['error'] = "Sorry, we could not find this entry.";
+            header("Location: ../views/users/user_dashboard.php");
+            exit();
+        }
 
-    require __DIR__ . '/../views/journal/view_entry.php';
-    break;
+        require __DIR__ . '/../views/journal/view_entry.php';
+        break;
     
+    // edit journal entry when user clicks edit button on view_entry page
+    case 'edit_entry':
+        // get the entry id and user id 
+        $entryId = isset($_GET['id']) ? (int) $_GET['id'] : null;
+        $userId = $_SESSION['user']['user_id'];
+
+        // if the entry id is not there or is invalid, redirect to dashboard with error 
+        if (!$entryId) {
+            $_SESSION['error'] = "Sorry, we could not find this entry.";
+            header("Location: ../views/users/user_dashboard.php");
+            exit();
+        }
+
+        // get the entry and user info
+        $journalEntry = new JournalEntry();
+        $entry = $journalEntry->getEntryById($entryId, $userId);
+
+        // if there is no entry or it is not the correct user, redirect to dashboard with error
+        if (!$entry) {
+            $_SESSION['error'] = "Sorry, we could not find this entry.";
+            header("Location: ../views/users/user_dashboard.php");
+            exit();
+        }
+
+        require __DIR__ . '/../views/journal/edit_entry.php';
+        break;
+    
+
 }

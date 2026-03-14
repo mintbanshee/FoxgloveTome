@@ -22,7 +22,7 @@ include __DIR__ . '/../header.php';
         Delete
     </a>
 
-    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit&id=<?= $entry['entry_id'] ?>"
+    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit_entry&id=<?= $entry['entry_id'] ?>"
        class="btn btn-primary">
         Edit
     </a>

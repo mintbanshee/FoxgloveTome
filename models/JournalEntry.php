@@ -50,14 +50,15 @@ class JournalEntry {
     return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  // retrieve a specific journal entry by its ID
-  public function getEntryById(int $entryId): ?array {
+  // retrieve a specific journal entry by its ID and ensure it belongs to the user
+  public function getEntryById(int $entryId, int $userId): ?array {
     $sql = "SELECT * 
             FROM journalEntries 
-            WHERE entry_id = :entry_id";
+            WHERE entry_id = :entry_id AND user_id = :user_id";
 
     $statement = $this->conn->prepare($sql);
-    $statement->bindValue(':entry_id', $entryId, PDO::PARAM_INT); 
+    $statement->bindValue(':entry_id', $entryId, PDO::PARAM_INT);
+    $statement->bindValue(':user_id', $userId, PDO::PARAM_INT);
     $statement->execute();
     
     $entry = $statement->fetch(PDO::FETCH_ASSOC);

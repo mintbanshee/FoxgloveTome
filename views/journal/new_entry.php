@@ -3,95 +3,103 @@ require_once __DIR__ . '/../../auth/require_login.php';
 include __DIR__ . '/../header.php';
 ?>
 
-<h2>New Journal Entry</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
 
-<form action="../../controllers/entry_controller.php?action=create" method="POST">
-    <div>
-        <label for="title">Title</label><br>
-        <input type="text" id="title" name="title" required>
-    </div>
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
 
-    <br>
+                    <h2 class="mb-4 text-center">New Journal Entry</h2>
 
-    <div>
-        <label for="content">Entry</label><br>
-        <textarea id="content" name="content" rows="8" cols="50" required></textarea>
-    </div>
+                    <form action="../../controllers/entry_controller.php?action=create" method="POST">
 
-    <br>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" id="title" name="title" class="form-control" required>
+                        </div>
 
-   <!-- Select Mood Category / changes moods in dropdown -->
-    <div>
-        <p>Select a mood category:</p>
+                        <div class="mb-4">
+                            <label for="content" class="form-label">Entry</label>
+                            <textarea id="content" name="content" rows="8" class="form-control" required></textarea>
+                        </div>
 
-        <div class="mood-category-icons">
-            <button type="button" class="mood-icon-btn" data-category="Blooming">
-                <img src="../../assets/images/categories/Blooming.png" alt="Blooming mood category" width="80">
-            </button>
+                        <!-- Select Mood Category -->
+                        <div class="mb-4">
+                            <p class="fw-semibold mb-3">Select a mood category:</p>
 
-            <button type="button" class="mood-icon-btn" data-category="Rooted">
-                <img src="../../assets/images/categories/Rooted.png" alt="Rooted mood category" width="80">
-            </button>
+                            <div class="d-flex flex-wrap gap-3 justify-content-center mood-category-icons">
+                                <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Blooming">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="80">
+                                </button>
 
-            <button type="button" class="mood-icon-btn" data-category="Wilted">
-                <img src="../../assets/images/categories/Wilted.png" alt="Wilted mood category" width="80">
-            </button>
+                                <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Rooted">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="80">
+                                </button>
 
-            <button type="button" class="mood-icon-btn" data-category="Prickly">
-                <img src="../../assets/images/categories/Prickly.png" alt="Prickly mood category" width="80">
-            </button>
+                                <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Wilted">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="80">
+                                </button>
+
+                                <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Prickly">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="80">
+                                </button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="mood_category" name="mood_category" required>
+
+                        <!-- Mood dropdown -->
+                        <div class="mb-4">
+                            <label for="mood" class="form-label">Select your mood:</label>
+                            <select id="mood" name="mood" class="form-select" required disabled>
+                                <option value="">-- Choose a category first --</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="<?= BASE_URL ?>views/users/user_dashboard.php" class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-dark">Save Entry</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <br>
-
-    <input type="hidden" id="mood_category" name="mood_category" required>
-
-<!-- Mood dropdown - moods available in dropdown change based on category selected above -->
-
-    <div>
-        <label for="mood">Select your mood:</label><br>
-        <select id="mood" name="mood" required disabled>
-            <option value="">-- Choose a category first --</option>
-        </select>
-    </div>
-
-    <br>
-
-    <button type="submit">Save Entry</button>
-</form>
+</div>
 
 <script>
-  // mood options 
 const moodOptions = {
-    Blooming: ["Joyful", "Hopeful", "Excited", "Proud", "Loved", "Happy", "Optimistic", "Accomplished", "Strong", "Condfident", "Inspired"],
+    Blooming: ["Joyful", "Hopeful", "Excited", "Proud", "Loved", "Happy", "Optimistic", "Accomplished", "Strong", "Confident", "Inspired"],
     Rooted: ["Calm", "Grounded", "Content", "Peaceful", "Stable", "Grateful", "Focused", "Resilient", "Balanced", "Secure", "Safe"],
     Wilted: ["Sad", "Drained", "Lonely", "Heavy", "Tired", "Disappointed", "Hopeless", "Discouraged", "Vulnerable", "Confused", "Helpless"],
     Prickly: ["Anxious", "Frustrated", "Overwhelmed", "Restless", "Irritated", "Stressed", "Agitated", "Traumatized", "Nervous", "Uncomfortable"]
 };
 
-// category selection and mood dropdown population
 const categoryButtons = document.querySelectorAll(".mood-icon-btn");
 const moodCategoryInput = document.getElementById("mood_category");
 const moodSelect = document.getElementById("mood");
 
-// update the dropdown based on the category selected 
 categoryButtons.forEach(button => {
     button.addEventListener("click", () => {
         const category = button.dataset.category;
 
         moodCategoryInput.value = category;
-
         moodSelect.innerHTML = '<option value="">-- Select a mood --</option>';
         moodSelect.disabled = false;
 
         const moods = moodOptions[category].sort();
 
         moods.forEach(mood => {
-          const option = document.createElement("option");
-          option.value = mood;
-          option.textContent = mood;
-          moodSelect.appendChild(option);
+            const option = document.createElement("option");
+            option.value = mood;
+            option.textContent = mood;
+            moodSelect.appendChild(option);
         });
 
         categoryButtons.forEach(btn => btn.classList.remove("selected"));
@@ -100,4 +108,4 @@ categoryButtons.forEach(button => {
 });
 </script>
 
-<?php include __DIR__ . '/../../footer.php'; ?>
+<?php include __DIR__ . '/../footer.php'; ?>

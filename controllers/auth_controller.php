@@ -92,6 +92,11 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
     $errors = [];          
     $email = '';
 
+    if (isset($_SESSION['user'])) {
+        header('Location: ' . BASE_URL . 'views/users/user_dashboard.php');
+        exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = strtolower(trim($_POST['email'] ?? ''));
         $password = $_POST['password'] ?? '';
