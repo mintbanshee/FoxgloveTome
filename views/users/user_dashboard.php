@@ -8,7 +8,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include __DIR__ . '/../header.php';
+include __DIR__ . '/../header.php'; 
+
 
 $userId = $_SESSION['user']['user_id'];
 $username = $_SESSION['user']['username'];
@@ -18,8 +19,23 @@ $entries = $journalEntry->getEntriesByUser($userId);
 
 ?>
 
-
 <div class="container py-5">
+
+<!-- Error & Success Flash Messages -->
+
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?= htmlspecialchars($_SESSION['success']) ?>
+        </div>
+    <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['error'])): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= htmlspecialchars($_SESSION['error']) ?>
+        </div>
+    <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
 
 <!-- Welcome Message and User Info -->
 
@@ -68,7 +84,7 @@ Logout
 </a>
         <a href="#" class="btn btn-secondary">Filter</a>
         <a href="#" class="btn btn-secondary">My Garden</a>
-        <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=create" class="btn btn-dark">
+        <a href="<?= BASE_URL ?>views/journal/new_entry.php" class="btn btn-dark">
             + New Entry
         </a>
     </div>

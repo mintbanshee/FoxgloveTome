@@ -64,4 +64,48 @@ class JournalEntry {
     $entry = $statement->fetch(PDO::FETCH_ASSOC);
     return $entry ?: null; 
   }
-}
+
+  // update an existing journal entry
+  public function update(
+    int $entryId, 
+    int $userId, 
+    string $title, 
+    string $content, 
+    string $moodCategory, 
+    string $mood
+  ): bool {
+    $sql = "UPDATE journalEntries 
+            SET title = :title, 
+                content = :content, 
+                mood_category = :mood_category, 
+                mood = :mood, 
+                date_updated = NOW()
+            WHERE entry_id = :entry_id 
+              AND user_id = :user_id";
+
+    $statement = $this->conn->prepare($sql);
+
+    return $statement->execute([
+      ':entry_id' => $entryId,
+      ':user_id' => $userId,
+      ':title' => $title,
+      ':content' => $content,
+      ':mood_category' => $moodCategory,
+      ':mood' => $mood
+    ]);
+  } 
+
+  // delete a journal entry
+  public function delete(int $entryId, int $userId): bool {
+    $sql = "DELETE FROM journalEntries
+            WHERE entry_id = :entry_id 
+              AND user_id = :user_id";
+
+    $statement = $this->conn->prepare($sql);
+
+    return $statement->execute([
+      ':entry_id' => $entryId,
+      ':user_id' => $userId
+    ]);
+  }
+} // close class JournalEntry

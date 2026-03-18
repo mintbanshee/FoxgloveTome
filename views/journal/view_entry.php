@@ -9,6 +9,24 @@ include __DIR__ . '/../header.php';
 ?>
 
 <div class="container py-5">
+
+<!-- Error & Success Flash Messages -->
+
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?= htmlspecialchars($_SESSION['success']) ?>
+        </div>
+    <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['error'])): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= htmlspecialchars($_SESSION['error']) ?>
+        </div>
+    <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+
   <div class="d-flex gap-2 mb-4">
 
     <a href="<?= BASE_URL ?>views/users/user_dashboard.php"

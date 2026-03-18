@@ -12,7 +12,7 @@ include __DIR__ . '/../header.php';
 
                     <h2 class="mb-4 text-center">Edit Journal Entry</h2>
 
-                    <form action="../../controllers/entry_controller.php?action=update_entry" method="POST">
+                    <form action="<?= BASE_URL ?>controllers/entry_controller.php?action=update_entry" method="POST">
                       <input type="hidden" name="entry_id" value="<?= $entry['entry_id'] ?>">
 
                         <div class="mb-3">
@@ -67,6 +67,7 @@ include __DIR__ . '/../header.php';
                         </div>
                     </div>
 
+                    <!-- Hidden input to store the selected mood category -->
                     <input type="hidden"
                           id="mood_category"
                           name="mood_category"

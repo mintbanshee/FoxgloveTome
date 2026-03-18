@@ -12,7 +12,7 @@ include __DIR__ . '/../header.php';
 
                     <h2 class="mb-4 text-center">New Journal Entry</h2>
 
-                    <form action="../../controllers/entry_controller.php?action=create" method="POST">
+                    <form action="<?= BASE_URL ?>controllers/entry_controller.php?action=create" method="POST">
 
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>

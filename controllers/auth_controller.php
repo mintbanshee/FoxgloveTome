@@ -35,13 +35,13 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
 
         // signup errors 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "That email doesn't look quite right. Maybe check the @ symbol?";
+            $errors[] = "That email does not look quite right. Maybe check the @ symbol?";
         }
         if (strlen($password) < 8) {
             $errors[] = 'Password must be at least 8 characters to keep your thoughts safe.';
         }
         if ($password !== $confirm) {
-            $errors[] = 'Passwords do not match. Please try again.';
+            $errors[] = 'Those passwords do not match. Please try again.';
         }
 
         if (empty($errors)) {
@@ -49,7 +49,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
             $stmt->execute(['email' => $email]);
 
             if ($stmt->fetch()) {
-                $errors[] = "It looks like this email already planted a garden here. <a href='?action=login'>Try logging in?</a>";
+                $errors[] = "It looks like this email already has a place within the tome. <a href='?action=login'>Try logging in</a>";
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -69,12 +69,14 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
                     'joined' => $joined
                 ]);
 
+                $name = trim("$first $last");
+
                 $_SESSION['user'] = [
                     'user_id' => $pdo->lastInsertId(),
                     'email' => $email,
                     'username' => $username,
                     'role' => $role,
-                    'name' => trim("$first $last"),
+                    'name' => $name !== '' ? $name : $username,
                     'date_joined' => $joined
                 ];
 
@@ -115,16 +117,18 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
         // as well as verifying the password 
         if (!$user || !password_verify($password, $user['password_hash'])) {
             
-            $errors[] = "Invalid email or password.";
+            $errors[] = "We could not match that email and password. Please try again.";
         } else {
             session_regenerate_id(true); // for additional security, if login successful create a fresh session id 
+
+            $name = trim(($user['first_name'] ?? '') . ' ' . ($user['last_name'] ?? ''));
 
             $_SESSION['user'] = [
                 'user_id' => (int)$user['user_id'],
                 'email'   => $user['email'],
                 'username'=> $user['username'] ?? '',
                 'role'    => $user['role'] ?? 'user',
-                'name'    => trim(($user['first_name'] ?? '') . ' ' . ($user['last_name'] ?? '')),
+                'name' => $name !== '' ? $name : ($user['username'] ?? ''),
             ];
 
             // return to previous page if applicable
@@ -176,7 +180,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
             $email = strtolower(trim($_POST['email'] ?? ''));
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "That email doesn't look quite right. Maybe check the @ symbol?";
+                $errors[] = "That email does not look quite right. Maybe check the @ symbol?";
             }
             
             // look up the user
@@ -214,7 +218,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
                     @mail($email, $subject, $body); 
                 } 
 
-                $message = "If an account exists for this email, a reset link has been sent.";
+                $message = "If an account exists for this email, a reset link has been sent to help you return to the tome.";
 
             }
         }
@@ -230,7 +234,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
             
             // if the token is missing from the link 
             if ($token === '') {
-                $errors[] = "This reset link is missing the key to your tome. Please request a new link to continue.";
+                $errors[] = "This reset link is missing the key to the tome. Please request a new link to continue.";
                 require_once __DIR__ . '/../auth/forgot_password.php';
                 break;
             }
@@ -245,7 +249,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
                 }
                 // confirm new password fail 
                 if ($newPassword !== $confirm) {
-                    $errors[] = 'Passwords do not match. Please try again.';
+                    $errors[] = 'Those passwords do not match. Please try again.';
                 }
                 // if no errors, continue
                 if (empty($errors)) {
@@ -262,7 +266,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
 
                     // expired link
                    if (!$reset || !empty($reset['used_at']) || strtotime($reset['expires_at']) < time()) {
-                        $errors[] = "This reset link has expired or has already been used.";
+                        $errors[] = "This reset link has expired or has already been used. If you still need to reset your password, please request a new link.";
                     } else {
                         // update the user's password
                         $hash = password_hash($newPassword, PASSWORD_DEFAULT);
@@ -285,7 +289,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
                         ");
                         $statement->execute(['reset_id' => (int)$reset['reset_id']]);
 
-                        $message = "Your password has been updated. You can log in now.";
+                        $message = "Your password has been updated. You may open the tome now.";
                     }
                 }
             }
