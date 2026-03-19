@@ -19,18 +19,17 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
     $email = '';
     $first = '';
     $last = '';
-    $role = '';
+    $role = 'user'; // default role for new signups
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       // all the variables needed for signup 
         $email = strtolower(trim($_POST['email'] ?? ''));
         $username = trim($_POST['username'] ?? '');
-        $password = $_POST['password'] ?? '';
-        $confirm = $_POST['confirm_password'] ?? '';
-        $role = $_POST['role'] ?? '';
-        $first = trim($_POST['first_name'] ?? '');
-        $last = trim($_POST['last_name'] ?? '');
+        $password = $_POST['password'] ?? ''; 
+        $confirm = $_POST['confirm_password'] ?? ''; 
+        $first = trim($_POST['first_name'] ?? ''); // optional for privacy
+        $last = trim($_POST['last_name'] ?? ''); // optional for privacy
         $joined = date('Y-m-d H:i:s');
 
         // signup errors 

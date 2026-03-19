@@ -10,12 +10,18 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include __DIR__ . '/../header.php'; 
 
-
 $userId = $_SESSION['user']['user_id'];
 $username = $_SESSION['user']['username'];
 
 $journalEntry = new JournalEntry();
 $entries = $journalEntry->getEntriesByUser($userId);
+
+// get the weekly mood summary
+$journalEntry = new JournalEntry();
+$summary = $journalEntry->getWeeklyMoodSummary($userId);
+
+// quotes array for the mood summary section 
+$quotes = include __DIR__ . '/../../config/quotes.php';
 
 ?>
 
@@ -48,7 +54,25 @@ $entries = $journalEntry->getEntriesByUser($userId);
     <div class="card mb-4">
         <div class="card-body text-center">
             <h5 class="card-title">Weekly Mood Summary</h5>
-            <p class="text-muted">Here's a summary of your moods for the past week:</p>
+
+            <!-- display the dominant mood for this week -->
+            <?php if (!empty($summary['dominantMood'])): ?>
+                <p class="text-muted">
+                    This week, you have been feeling mostly <?= htmlspecialchars($summary['dominantMood']) ?>.
+                </p>
+
+                <?php if (!empty($summary['quote'])): ?>
+                    <p class="fst-italic mt-2">
+                        "<?= htmlspecialchars($summary['quote']) ?>"
+                    </p>
+                <?php endif; ?>
+
+            <?php else: ?>
+                <!-- if there are no entries in the past week, display a message -->
+                <p class="text-muted">
+                    Your story is still unfolding this week 🌱
+                </p>
+            <?php endif; ?>
         </div>
     </div>
 

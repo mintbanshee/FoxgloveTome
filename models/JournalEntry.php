@@ -108,4 +108,65 @@ class JournalEntry {
       ':user_id' => $userId
     ]);
   }
+
+  // get weekly mood stats for the weekly mood summary 
+  public function getWeeklyMoodSummary(int $userID): array {
+    $entries = $this->getEntriesByUser($userID);
+
+    $weeklyEntries = [];
+    $moodCounts = []; // how often each mood is logged in the past week
+    $dominantMood = null; // start with no dominant mood
+    $dominantCategory = null; // start with no dominant category
+
+    $oneWeekAgo = strtotime('-7 days'); // 7 days for the week 
+
+    foreach ($entries as $entry) {
+        // make sure to only include entries from the past 7 days
+        if (strtotime($entry['date_created']) >= $oneWeekAgo) { 
+            $weeklyEntries[] = $entry;
+
+            // count the moods in the entries 
+            $mood = $entry['mood'];
+            // if this mood is not already counted - start the counting process and start with 0
+            if (!isset($moodCounts[$mood])) {
+                $moodCounts[$mood] = 0;
+            }
+            // get the final count for each mood
+            $moodCounts[$mood]++;
+            }
+        }
+        // which mood is logged the most in the entries from the 7 days
+        if (!empty($moodCounts)) { // only continue if there are moods to count
+            arsort($moodCounts); // sort by count
+            $dominantMood = array_key_first($moodCounts); // get the mood with the highest count
+        // which category does the dominant mood belong to
+            foreach ($weeklyEntries as $entry) { // loop through the entries
+                if ($entry['mood'] === $dominantMood) { // find the dominant mood in the entries
+                    $dominantCategory = $entry['mood_category']; // get the category of the dominant mood
+                  break; 
+                }
+            }
+
+          // load quotes and pick one quote that matches the dominant mood category
+          $quotes = require __DIR__ . '/../config/quotes.php';
+
+          if ($dominantCategory && isset($quotes[$dominantCategory])) {
+              $categoryQuotes = $quotes[$dominantCategory];
+              // pick a random quote from the category
+              $randomIndex = array_rand($categoryQuotes);
+              // get the selected quote for the mood summary section
+              $selectedQuote = $categoryQuotes[$randomIndex];
+          } else {
+            // if no dominant category the quote is null 
+              $selectedQuote = null;
+          }
+        }
+        return [
+          // return the dominant mood and the quote.
+            'dominantMood' => $dominantMood,
+            'dominantCategory' => $dominantCategory,
+            'quote' => $selectedQuote
+        ];
+  }
+
 } // close class JournalEntry

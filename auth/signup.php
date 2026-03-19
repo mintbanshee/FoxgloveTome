@@ -35,13 +35,6 @@ declare(strict_types=1);
     <label>Email</label><br>
     <input type="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>" required><br><br>
 
-    <label>Role</label><br>
-    <select name="role" required>
-        <option value="">Select role</option>
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select><br><br>
-
     <label>Password</label><br>
     <input type="password" name="password" required><br><br>
 
