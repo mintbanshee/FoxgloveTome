@@ -12,35 +12,34 @@ require_once __DIR__ . '/../config/app.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/scss/app.scss">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/garden.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
   <title>The Foxglove Tome</title>
 </head>
 
+
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-sanctuary navbar-dark">
+<nav class="navbar navbar-sanctuary navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
-      <img src="<?php echo BASE_URL; ?>assets/logo/FoxgloveTome.svg" alt="Foxglove tome logo - a branch of foxglove flowers standing guard infront of an open journal" width="40" height="40">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="<?= BASE_URL ?>views/users/user_dashboard.php">
-            <img src="<?php echo BASE_URL; ?>assets/images/icons/accountWhite.png" alt="Account icon button - click here to access your dashboard" width="40" height="40">
-          </a>
-        </li>
 
-      </ul>
+    <!-- logo -->
+    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
+      <img src="<?php echo BASE_URL; ?>assets/logo/FoxgloveTome.svg"
+           alt="Foxglove tome logo"
+           width="40" height="40">
+    </a>
+
+    <!-- dashboard button (always visible) -->
+    <div class="ms-auto">
+      <a href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        <img src="<?php echo BASE_URL; ?>assets/images/icons/accountWhite.png"
+             alt="Dashboard"
+             width="40" height="40">
+      </a>
     </div>
+
   </div>
 </nav>
-  
-</body>
-</html>

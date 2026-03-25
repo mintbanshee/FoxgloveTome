@@ -27,26 +27,6 @@ include __DIR__ . '/../header.php';
     <?php endif; ?>
 
 
-  <div class="d-flex gap-2 mb-4">
-
-    <a href="<?= BASE_URL ?>views/users/user_dashboard.php"
-       class="btn btn-secondary">
-        Back to Dashboard
-    </a>
-
-    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=delete&id=<?= $entry['entry_id'] ?>"
-       class="btn btn-danger"
-       onclick="return confirm('Are you sure you want to delete this entry?');">
-        Delete
-    </a>
-
-    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit_entry&id=<?= $entry['entry_id'] ?>"
-       class="btn btn-primary">
-        Edit
-    </a>
-
-</div>
-
   <p class="text-muted">
                 <?= htmlspecialchars($entry['date_created']) ?>
             </p>
@@ -71,3 +51,31 @@ include __DIR__ . '/../header.php';
     </div>
 
 </div>
+
+
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
+  <div class="container-fluid justify-content-around">
+
+    <a class="btn btn-light btn-outline-success rounded-pill px-4 mt-3" 
+        href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        Dashboard
+    </a>
+
+    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=delete&id=<?= $entry['entry_id'] ?>" 
+    class="btn btn-light btn-outline-danger rounded-pill px-4 mt-3" 
+    onclick="return confirm('Are you sure you want to delete this entry?');">
+        Delete
+    </a>
+
+    <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit_entry&id=<?= $entry['entry_id'] ?>"
+    class="btn btn-light btn-outline-primary rounded-pill px-4 mt-3">
+    Edit Entry
+    </a>
+
+  </div>
+</nav>
+
+
+
+
+<?php include __DIR__ . '/../footer.php'; ?>

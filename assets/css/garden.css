@@ -1,0 +1,38 @@
+/* assets/css/garden.css */
+
+/* container with background */
+.garden {
+  background-image: url("../images/gardenBG.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+/* holds flowers */
+.gardenPlants {
+  position: absolute;
+  inset: 0;
+}
+
+/* each flower */
+.gardenPlant {
+  position: absolute;
+}
+
+/* flower style */
+.flower {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* 🌿 your 4 fixed positions */
+.pos1 { left: 25%; bottom: 12%; }
+.pos2 { left: 45%; bottom: 16%; }
+.pos3 { left: 70%; bottom: 12%; }
+.pos4 { left: 60%; bottom: 24%; }

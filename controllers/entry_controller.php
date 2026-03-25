@@ -24,6 +24,7 @@ switch ($action) {
 
           // Validate required fields - if any are missing, redirect back with error message
         if (!$title || !$content || !$moodCategory || !$mood) {
+            unset($_SESSION['success']);
             $_SESSION['error'] = "It looks like something is missing. Please fill in all fields before saving.";
             header("Location: ". BASE_URL . "views/journal/new_entry.php");
             exit();
@@ -34,10 +35,12 @@ switch ($action) {
         $success = $entry->create($userId, $title, $content, $moodCategory, $mood);
 
         if ($success) {
+            unset($_SESSION['error']);
             $_SESSION['success'] = "Your thoughts have been safely stored in the tome.";
             header("Location: " . BASE_URL . "views/users/user_dashboard.php");
             exit();
         } else {
+            unset($_SESSION['success']);
             $_SESSION['error'] = "Some dust must have settled on the page while saving your entry. Please try again.";
             header("Location: " . BASE_URL . "views/journal/new_entry.php");
             exit();

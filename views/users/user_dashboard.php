@@ -101,17 +101,26 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
         </div>
     <?php endif; ?>
 
-<!-- Dashboard Buttons -->
-    <div class="mt-4 d-flex justify-content-center gap-3">
-        <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout" class="btn btn-outline-secondary">
-Logout
-</a>
-        <a href="#" class="btn btn-secondary">Filter</a>
-        <a href="#" class="btn btn-secondary">My Garden</a>
-        <a href="<?= BASE_URL ?>views/journal/new_entry.php" class="btn btn-dark">
-            + New Entry
-        </a>
-    </div>
 
-</div>
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
+  <div class="container-fluid justify-content-around">
 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-4 mt-3" 
+        href="<?= BASE_URL ?>auth/logout.php">
+        Logout
+    </a>
+
+    <a class="btn btn-light btn-outline-success rounded-pill px-4 mt-3" 
+        href="<?= BASE_URL ?>views/users/garden.php">
+        Garden
+    </a>
+
+    <a class="btn btn-light btn-outline-primary rounded-pill px-4 mt-3" 
+        href="<?= BASE_URL ?>controllers/entry_controller.php?action=create">
+        + New Entry
+    </a>
+
+  </div>
+</nav>
+
+<?php include __DIR__ . '/../footer.php'; ?>

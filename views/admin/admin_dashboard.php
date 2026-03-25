@@ -9,3 +9,5 @@ include __DIR__ . '/../../header.php';
 <p>Your role: <?= htmlspecialchars($_SESSION['user']['role']) ?></p>
 
 <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout">Logout</a>
+
+<?php include __DIR__ . '/../footer.php'; ?>

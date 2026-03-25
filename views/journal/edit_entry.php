@@ -44,25 +44,25 @@ include __DIR__ . '/../header.php';
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Blooming' ? 'selected' : '' ?>"
                                     data-category="Blooming">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="80">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="60">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Rooted' ? 'selected' : '' ?>"
                                     data-category="Rooted">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="80">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="60">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Wilted' ? 'selected' : '' ?>"
                                     data-category="Wilted">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="80">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="60">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Prickly' ? 'selected' : '' ?>"
                                     data-category="Prickly">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="80">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="60">
                             </button>
                         </div>
                     </div>
@@ -84,12 +84,21 @@ include __DIR__ . '/../header.php';
                             </select>
                         </div>
 
-                        <div class="d-flex justify-content-end gap-2">
-                            <a href="<?= BASE_URL ?>views/users/user_dashboard.php" class="btn btn-outline-secondary">
-                                Cancel
-                            </a>
-                            <button type="submit" class="btn btn-dark">Save Entry</button>
-                        </div>
+                        <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
+  <div class="container-fluid justify-content-around">
+
+    <a class="btn btn-light btn-outline-success rounded-pill px-4 mt-3" 
+        href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        Cancel
+    </a>
+
+
+    <button type="submit" class="btn btn-light btn-outline-primary rounded-pill px-4 mt-3">
+        Save Entry
+    </button>
+
+  </div>
+</nav>
 
                     </form>
 
@@ -99,6 +108,12 @@ include __DIR__ . '/../header.php';
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 <script>
 const moodOptions = {
