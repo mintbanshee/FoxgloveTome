@@ -1,18 +1,17 @@
 <?php 
 declare(strict_types=1); 
 
+include __DIR__ . '/../views/header.php';
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-</head>
-<body>
+<div class="signupBG">
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+      <div class="loginCard p-4">
 
-<h1>Sign Up</h1>
+        <h1 class="login-title">Create an Account</h1>
 
 <?php if (!empty($errors)): ?>
     <ul>
@@ -23,28 +22,62 @@ declare(strict_types=1);
 <?php endif; ?>
 
 <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=signup">
-    <label>First Name</label><br>
-    <input type="text" name="first_name" value="<?= htmlspecialchars($first ?? '') ?>" required><br><br>
+    
+    <div class="mb-3 text-start">
+        <label class="form-label">First Name</label>
+        <input type="text" name="first_name" class="form-control" placeholder="optional" value="<?= htmlspecialchars($first ?? '') ?>">
+    </div>
 
-    <label>Last Name</label><br>
-    <input type="text" name="last_name" value="<?= htmlspecialchars($last ?? '') ?>" required><br><br>
+    <div class="mb-3 text-start">
+        <label class="form-label">Last Name</label>
+        <input  type="text" 
+                name="last_name" 
+                class="form-control" 
+                placeholder="optional" 
+                value="<?= htmlspecialchars($last ?? '') ?>">
+    </div>
 
-    <label>Username</label><br>
-    <input type="text" name="username" required><br><br>
+    <div class="mb-3 text-start">
+        <label class="form-label">Username</label>
+        <input  type="text" 
+                name="username" 
+                class="form-control" 
+                required>
+    </div>
 
-    <label>Email</label><br>
-    <input type="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>" required><br><br>
+    <div class="mb-3 text-start">
+        <label class="form-label">Email</label>
+        <input  type="email" 
+                name="email" 
+                class="form-control" 
+                value="<?= htmlspecialchars($email ?? '') ?>" 
+                required>
+    </div>
 
-    <label>Password</label><br>
-    <input type="password" name="password" required><br><br>
+    <div class="mb-3 text-start">
+        <label class="form-label">Password</label>
+        <input  type="password" 
+                name="password" 
+                class="form-control" 
+                required>
+    </div>
 
-    <label>Confirm Password</label><br>
-    <input type="password" name="confirm_password" required><br><br>
+    <div class="mb-3 text-start">
+        <label class="form-label">Confirm Password</label>
+        <input  type="password" 
+                name="confirm_password" 
+                class="form-control" 
+                required>
+    </div>
 
-    <button type="submit">Create Account</button>
+    <button type="submit" class="btn btn-light rounded-pill px-4">Create Account</button>
 </form>
 
-<p><a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login">Already have an account? Log in</a></p>
+<p class="mt-3 mb-1">Already have an account?</p>
+<a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login"
+    class="btn btn-outline-light rounded-pill px-4 mt-2">
+    Log in
+</a>
 
 </body>
 </html>

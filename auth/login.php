@@ -1,51 +1,52 @@
-<?php 
-declare(strict_types=1); 
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../config/app.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+include __DIR__ . '/../views/header.php';
 
 ?>
+<div class="loginBG">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
 
-<?php if (!empty($errors)): ?>
-    <ul>
-        <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+      <div class="loginCard p-4">
 
+        <h1 class="login-title">Login</h1>
 
+        <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
 
+            <div class="mb-3 text-start">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
-<body class="login-page">
+            <div class="mb-4 text-start">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
 
-<div class="login-card">
+            <button type="submit" class="btn btn-light rounded-pill px-4">
+                Log In
+            </button>
 
-    <h1 class="login-title">Login</h1>
-    <h3 class="mb-4">The Foxglove Tome</h3>
+            <p class="mt-3 mb-1">Don’t have an account?</p>
 
-    <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
+<a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup" 
+   class="btn btn-outline-light rounded-pill px-4 mt-2">
+    Sign Up
+</a>
 
-        <div class="mb-3">
-            <input type="email" name="email" class="form-control" placeholder="email" required>
-        </div>
+        </form>
 
-        <div class="mb-4">
-            <input type="password" name="password" class="form-control" placeholder="password" required>
-        </div>
-
-        <button type="submit" class="btn btn-light rounded-pill px-4 mb-3">
-            Log In
-        </button>
-    </form>
-
-    <p class="mb-2">Don't have a garden yet?</p>
-    <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup" class="btn btn-outline-light rounded-pill px-3">
-        Sign Up
-    </a>
-
-    <p class="mt-4 small">
-        Your mind is a garden, your thoughts are the seeds...<br>
-        You can grow flowers or you grow weeds.
-    </p>
-
+    </div>
+    </div>
+</div>
 </div>
 
-</body>
+<?php include __DIR__ . '/../views/footer.php'; ?>

@@ -102,42 +102,27 @@ body {
   align-items: center; /* vertical center */
 }
 
-.login-page {
-  background: url("../images/loginBG.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.loginBG {
+    background: url("../images/loginBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
-
-.login-card {
-  background: rgba(46, 64, 51, 0.65); /* your dark ivy */
+.loginCard {
+  background: rgba(46, 64, 51, 0.65);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
   border-radius: 20px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
-
   color: white;
   text-align: center;
 }
-.login-card input {
-  border-radius: 10px;
-  padding: 10px;
-  border: none;
+.loginCard input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
 }
-
-.login-card input:focus {
-  outline: 2px solid var(--highlight);
-  box-shadow: none;
-}
-.login-title {
-  font-family: "MonteCarlo", cursive;
-  font-size: 2.5rem;
+.signupBG {
+    background: url("../images/SignUpBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
