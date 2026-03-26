@@ -3,17 +3,6 @@ declare(strict_types=1);
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-
-<h1>Login</h1>
-
 <?php if (!empty($errors)): ?>
     <ul>
         <?php foreach ($errors as $error): ?>
@@ -22,18 +11,41 @@ declare(strict_types=1);
     </ul>
 <?php endif; ?>
 
-<form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
-    <label>Email</label><br>
-    <input type="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>" required><br><br>
 
-    <label>Password</label><br>
-    <input type="password" name="password" required><br><br>
 
-    <button type="submit">Log In</button>
-</form>
 
-<p><a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup">Need an account? Sign up</a></p>
-<p><a href="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password">Forgot your password?</a></p>
+<body class="login-page">
+
+<div class="login-card">
+
+    <h1 class="login-title">Login</h1>
+    <h3 class="mb-4">The Foxglove Tome</h3>
+
+    <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
+
+        <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="email" required>
+        </div>
+
+        <div class="mb-4">
+            <input type="password" name="password" class="form-control" placeholder="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-light rounded-pill px-4 mb-3">
+            Log In
+        </button>
+    </form>
+
+    <p class="mb-2">Don't have a garden yet?</p>
+    <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup" class="btn btn-outline-light rounded-pill px-3">
+        Sign Up
+    </a>
+
+    <p class="mt-4 small">
+        Your mind is a garden, your thoughts are the seeds...<br>
+        You can grow flowers or you grow weeds.
+    </p>
+
+</div>
 
 </body>
-</html>

@@ -3,6 +3,13 @@ require_once __DIR__ . '/../../auth/require_login.php';
 include __DIR__ . '/../header.php';
 ?>
 
+<!-- clear any previous messages -->
+<?php
+unset($_SESSION['error']);
+unset($_SESSION['success']);
+?>
+
+
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -12,7 +19,8 @@ include __DIR__ . '/../header.php';
 
                     <h2 class="mb-4 text-center">New Journal Entry</h2>
 
-                    <form action="<?= BASE_URL ?>controllers/entry_controller.php?action=create" method="POST">
+                    <form id="entryForm" action="<?= BASE_URL ?>controllers/entry_controller.php?action=create" method="POST">
+                        <input type="hidden" name="action" value="create">
 
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
@@ -57,23 +65,24 @@ include __DIR__ . '/../header.php';
                             </select>
                         </div>
 
+                    </form>
 
-<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
-  <div class="container-fluid justify-content-around">
+                    <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-danger rounded-pill px-4 mt-3" 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Cancel
     </a>
 
-    <button type="submit" class="btn btn-light btn-outline-success rounded-pill px-4 mt-3">
+    <button type="submit" 
+            form="entryForm"
+            class="btn btn-light btn-outline-success rounded-pill px-4">
         Save Entry
     </button>
 
   </div>
 </nav>
-
-                    </form>
 
                 </div>
             </div>

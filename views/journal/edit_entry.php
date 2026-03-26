@@ -84,16 +84,16 @@ include __DIR__ . '/../header.php';
                             </select>
                         </div>
 
-                        <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
-  <div class="container-fluid justify-content-around">
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-success rounded-pill px-4 mt-3" 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Cancel
     </a>
 
 
-    <button type="submit" class="btn btn-light btn-outline-primary rounded-pill px-4 mt-3">
+    <button type="submit" class="btn btn-light btn-outline-primary rounded-pill px-4">
         Save Entry
     </button>
 

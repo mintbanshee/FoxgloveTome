@@ -53,7 +53,7 @@ foreach ($monthlyEntries as $entry) {
         </div>
     <?php else: ?>
 
-    <div class="garden">
+    <div id="gardenSnapshot" class="garden">
 
         <div class="gardenPlants">
             <?php $position = 1; ?>
@@ -70,5 +70,47 @@ foreach ($monthlyEntries as $entry) {
 
     <?php endif; ?>
 </div>
+
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
+
+    <button type="button" id="saveGardenBtn" class="btn btn-light btn-outline-primary rounded-pill px-4">
+        Save Image
+    </button>
+    
+    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
+        href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        Dashboard
+    </a>
+
+  </div>
+</nav>
+
+<!-- script to save garden image -->
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const saveBtn = document.getElementById('saveGardenBtn');
+    const garden = document.getElementById('gardenSnapshot');
+
+    if (saveBtn && garden) {
+        saveBtn.addEventListener('click', async function () {
+            const canvas = await html2canvas(garden, {
+                useCORS: true,
+                scale: 2,
+                backgroundColor: null
+            });
+
+            const link = document.createElement('a');
+            link.download = 'GardenMoodTracker' + new Date().toISOString().slice(0,10) + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    }
+});
+</script>
+
+
 
 <?php include __DIR__ . '/../footer.php'; ?>

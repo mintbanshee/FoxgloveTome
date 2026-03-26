@@ -1,16 +1,16 @@
 /* assets/css/garden.css */
 
-/* container with background */
 .garden {
+  width: 100%;
+  max-width: 380px;
+  min-height: 744px;
+  margin: 0 auto;
   background-image: url("../images/gardenBG.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 40px;
   border-radius: 12px;
   position: relative;
-  width: 100%;
-  min-height: 700px;
   overflow: hidden;
 }
 
@@ -23,16 +23,27 @@
 /* each flower */
 .gardenPlant {
   position: absolute;
+  transform: translateX(-50%);
 }
 
 /* flower style */
 .flower {
+  display: block;
   font-size: 2.5rem;
   line-height: 1;
+  text-align: center;
+}
+
+.gardenPlant {
+  position: absolute;
+  width: auto;
+  height: auto;
 }
 
 /* 🌿 your 4 fixed positions */
-.pos1 { left: 25%; bottom: 12%; }
-.pos2 { left: 45%; bottom: 16%; }
-.pos3 { left: 70%; bottom: 12%; }
-.pos4 { left: 60%; bottom: 24%; }
+.pos1 { left: 60px; top: 412px; }  /* bottom left pot */
+.pos2 { left: 310px; top: 495px; }  /* bottom right pot */
+.pos3 { left: 88px; top: 235px; }  /* top left pot */
+.pos4 { left: 285px; top: 320px; }  /* top right pot */
+
+

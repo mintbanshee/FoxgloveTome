@@ -11,8 +11,8 @@ require_once __DIR__ . '/../config/app.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/scss/app.scss">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/garden.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/app.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/garden.css?v=<?php echo time(); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">

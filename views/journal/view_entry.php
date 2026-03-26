@@ -53,22 +53,22 @@ include __DIR__ . '/../header.php';
 </div>
 
 
-<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top">
-  <div class="container-fluid justify-content-around">
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-success rounded-pill px-4 mt-3" 
+    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Dashboard
     </a>
 
     <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=delete&id=<?= $entry['entry_id'] ?>" 
-    class="btn btn-light btn-outline-danger rounded-pill px-4 mt-3" 
+    class="btn btn-light btn-outline-danger rounded-pill px-4 
     onclick="return confirm('Are you sure you want to delete this entry?');">
         Delete
     </a>
 
     <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit_entry&id=<?= $entry['entry_id'] ?>"
-    class="btn btn-light btn-outline-primary rounded-pill px-4 mt-3">
+    class="btn btn-light btn-outline-primary rounded-pill px-4">
     Edit Entry
     </a>
 

@@ -153,8 +153,7 @@ switch ($action) {
         }
 
     default:
-        $_SESSION['error'] = "We couldn't find that page, it looks like it does not exist within the pages of the tome.";
-        header("Location: " . BASE_URL . "views/users/user_dashboard.php");
-        exit();
+    header("Location: " . BASE_URL . "views/users/user_dashboard.php");
+    exit();
 
 } // close switch statement 
