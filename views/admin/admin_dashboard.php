@@ -1,13 +1,109 @@
 <?php 
 require_once __DIR__ . '/../../auth/require_login.php'; 
-include __DIR__ . '/../../header.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+include __DIR__ . '/../header.php';
+
+$username = $_SESSION['user']['username'];
 ?>
 
-<h1>Admin Dashboard</h1>
+<div class="container py-4">
 
-<p>Welcome <?= htmlspecialchars($_SESSION['user']['name']) ?></p>
-<p>Your role: <?= htmlspecialchars($_SESSION['user']['role']) ?></p>
+<!-- Error & Success Flash Messages -->
 
-<a href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout">Logout</a>
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?= htmlspecialchars($_SESSION['success']) ?>
+        </div>
+    <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['error'])): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= htmlspecialchars($_SESSION['error']) ?>
+        </div>
+    <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+<!-- Welcome Message and User Info -->
+
+    <div class="text-center">
+        <p class="mb-2 text-muted"><sub>⟡</sub>☾<sup>⟡</sup></p>
+        <h1>The Keepers of the Tome</h1>
+        <h3 class="text-muted">Sanctuary Control</h3>
+        <p class="mt-3 mb-2 text-muted">✦ ━━ ⟡ ━━ ✦</p>
+
+        <p>Welcome back, Keeper <?= htmlspecialchars($username) ?></p>
+        <p>Thank you for helping us make Foxglove a better place for everyone!</p>
+    </div>
+
+
+<!-- App Stats -->
+<div class="card p-0 overflow-hidden">
+  <div class="row g-0 text-center">
+
+    <div class="col-12 col-md-4 stat-item">
+      <div class="p-2">
+        <h4><?= htmlspecialchars((string) $totalUsers) ?></h4>
+        <p class="text-muted mb-0">Total Users</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 stat-item">
+      <div class="p-2">
+        <h4><?= htmlspecialchars((string) ($totalEntries ?? '—')) ?></h4>
+        <p class="text-muted mb-0">Journal Entries</p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 stat-item">
+      <div class="p-3">
+        <h4><?= htmlspecialchars((string) ($mostCommonMood ?? '—')) ?></h4>
+        <p class="text-muted mb-0">Most Common Mood</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Admin Actions -->
+<div class="text-center mt-4">
+
+  <h4 class="mb-3 text-muted">Sanctuary Actions</h4>
+
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+
+    <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">
+      Manage Users
+    </a>
+
+    <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">
+      Manage Moods
+    </a>
+
+  </div>
+
+</div>
+
+
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
+
+    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
+        href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout">
+        Logout
+    </a>
+
+    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
+        href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        My Dashboard
+    </a>
+
+
+
+  </div>
+</nav>
 
 <?php include __DIR__ . '/../footer.php'; ?>

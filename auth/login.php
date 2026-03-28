@@ -31,16 +31,22 @@ include __DIR__ . '/../views/header.php';
                 <input type="password" name="password" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-light rounded-pill px-4">
+            <button type="submit" class="btn btn-light rounded-pill px-4 mt-2 w-100">
                 Log In
             </button>
 
-            <p class="mt-3 mb-1">Don’t have an account?</p>
+            <p class="mt-4 mb-1">Don’t have an account?</p>
 
 <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup" 
-   class="btn btn-outline-light rounded-pill px-4 mt-2">
+   class="btn btn-outline-light rounded-pill px-4 mt-3 w-100">
     Sign Up
 </a>
+<p class="mt-4">
+  <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password" 
+     class="text-light small text-decoration-underline">
+     Forgot your password?
+  </a>
+</p>
 
         </form>
 

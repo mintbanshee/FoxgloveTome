@@ -109,6 +109,26 @@ class JournalEntry {
     ]);
   }
 
+  // get total number of journal entries for the entire app
+  public function getTotalEntries(): int {
+    $sql = "SELECT COUNT(*) FROM journalEntries";
+    $statement = $this->conn->query($sql);
+    return (int) $statement->fetchColumn();
+  }
+
+  // get the most common mood across all journal entries
+  public function getMostCommonMood(): ?string {
+    $sql = "SELECT mood, COUNT(*) AS count
+            FROM journalEntries
+            GROUP BY mood
+            ORDER BY count DESC
+            LIMIT 1";
+
+    $statement = $this->conn->query($sql);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['mood'] : '-';
+  }
+
   // get weekly mood stats for the weekly mood summary 
   public function getWeeklyMoodSummary(int $userID): array {
     $entries = $this->getEntriesByUser($userID);

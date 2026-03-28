@@ -1,18 +1,9 @@
 <?php 
 declare(strict_types=1); 
 
+include __DIR__ . '/../views/header.php';
+
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Forgot Password</title>
-</head>
-<body>
-
-<h1>Forgot Password</h1>
 
 <?php if (!empty($errors)): ?>
     <ul>
@@ -26,14 +17,35 @@ declare(strict_types=1);
     <p><?= htmlspecialchars($message) ?></p>
 <?php endif; ?>
 
-<form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password">
-    <label>Email</label><br>
-    <input type="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>" required><br><br>
+<div class="loginBG">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
 
-    <button type="submit">Send Reset Link</button>
-</form>
+        <div class="loginCard p-4">
 
-<p><a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login">Back to login</a></p>
+            <h1 class="login-title mb-4">Forgot Your Password?</h1>
 
-</body>
-</html>
+            <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password">
+    
+                <div class="mb-2 text-start">
+                    <label class="form-text text-white mb-4">Enter your email address below and we'll send you a link to reset your password.</label>
+                    <input type="email" name="email" class="form-control" placeholder="email" required>
+                </div>
+
+                <button type="submit" class="btn btn-light rounded-pill px-4 mt-4 w-100">Send Reset Link</button>
+            </form>
+
+            <p class="mt-4">
+                <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login"
+                    class="text-light small text-decoration-underline">
+                    Back to login
+                </a>
+            </p>
+
+        </div>
+    </div>
+</div>  
+</div>
+
+<?php include __DIR__ . '/../views/footer.php'; ?>

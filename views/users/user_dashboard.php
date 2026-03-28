@@ -48,6 +48,12 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
     <div class="mb-4 text-center">
         <h1>My Dashboard</h1>
         <p>Welcome back, <?= htmlspecialchars($username) ?></p>
+        <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
+        <a href="<?= BASE_URL ?>controllers/admin_controller.php?action=sanctuaryControl" 
+        class="btn btn-outline-success rounded-pill px-4">
+            <sub>⟡</sub>☾<sup>⟡</sup> Keeper Access
+        </a>
+    <?php endif; ?>
     </div>
 
 <!-- Weekly Mood Summary -->

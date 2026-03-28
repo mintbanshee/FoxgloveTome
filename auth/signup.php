@@ -6,7 +6,7 @@ include __DIR__ . '/../views/header.php';
 
 
 <div class="signupBG">
-<div class="container py-4">
+<div class="container py-3">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-6 col-lg-4">
       <div class="loginCard p-4">
@@ -70,12 +70,12 @@ include __DIR__ . '/../views/header.php';
                 required>
     </div>
 
-    <button type="submit" class="btn btn-light rounded-pill px-4">Create Account</button>
+    <button type="submit" class="btn btn-light rounded-pill px-4 mt-4 w-100">Create Account</button>
 </form>
 
 <p class="mt-3 mb-1">Already have an account?</p>
 <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login"
-    class="btn btn-outline-light rounded-pill px-4 mt-2">
+    class="btn btn-outline-light rounded-pill px-4 mt-2 w-100">
     Log in
 </a>
 
