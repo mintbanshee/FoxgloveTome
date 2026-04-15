@@ -1,3 +1,7 @@
+
+
+/*~*~*~*~*~*~ BASE THINGS *~*~*~*~*~*~*/
+
 :root {
     --background: #fdfbf7;
     --navbackground: #2e004f;
@@ -14,31 +18,45 @@
     --scrim2: rgba(0, 0, 0, 0.6);
 }
 
-.navbar-sanctuary {
-    background-color: #2e004f !important;
-}
-
-.navbar-sanctuary .nav-link,
-.navbar-sanctuary .navbar-brand {
-    color: #ffffff !important;
-}
-
-.navbar-brand img {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
-
-.navbar-brand img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-}
-
 .montecarlo-regular {
     font-family: "MonteCarlo", cursive;
     font-weight: 400;
     font-style: normal;
 }
+
+body {
+    padding-bottom: 70px;
+    background: var(--hover);
+}
+
+/*~*~*~*~*~*~ BOTTOM NAV *~*~*~*~*~*~*/
+
+.navbar-bottom {
+  height: 70px;
+  display: flex;
+  align-items: center; /* vertical center */
+}
+
+/*~*~*~*~*~*~ TOP NAV *~*~*~*~*~*~*/
+
+.navbar-sanctuary {
+    background-color: #2e004f !important;
+}
+.navbar-sanctuary .nav-link,
+.navbar-sanctuary .navbar-brand {
+    color: #ffffff !important;
+}
+.navbar-brand img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/*~*~*~*~*~*~ HOME PAGE *~*~*~*~*~*~*/
 
 #heroSection {
     background: url("../images/HeroBGDark.png");
@@ -50,21 +68,17 @@
     padding-top: 1em;
     position: relative;
 }
-
 #heroSection p {
     color: var(--detail);
 }
-
 #heroSection h1 {
     color: var(--text);
 }
-
 #welcomeTitle {
     background: var(--scrim);
     position: relative;
     z-index: 1;
 }
-
 #welcomeMessage {
     color: #fff;
     position: relative;
@@ -72,19 +86,18 @@
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
+/*~*~*~*~*~*~ MOODS *~*~*~*~*~*~*/
+
 .mood-category-icons .mood-icon-btn {
     border-radius: 50%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .mood-category-icons .mood-icon-btn img {
     border-radius: 50%;
 }
-
 .mood-category-icons .mood-icon-btn:hover {
     transform: scale(1.05);
 }
-
 .mood-category-icons .mood-icon-btn.selected {
     transform: scale(1.08);
     box-shadow: 0 0 0 3px rgba(162, 203, 180, 0.6),
@@ -92,15 +105,8 @@
     background: rgba(162, 203, 180, 0.08);
 }
 
-body {
-    padding-bottom: 70px;
-}
+/*~*~*~*~*~*~ AUTH *~*~*~*~*~*~*/
 
-.navbar-bottom {
-  height: 70px;
-  display: flex;
-  align-items: center; /* vertical center */
-}
 .loginBG {
     background: url("../images/loginBG.png");
     background-size: cover;
@@ -129,10 +135,142 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
 }
-.stat-item {
-  border-bottom: 1px solid #d8d8d8;
+
+/*~*~*~*~*~*~ USER DASHBOARD *~*~*~*~*~*~*/
+
+.summaryCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.flourish {
+  color: var(--callToAct);
+}
+.entryCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.description {
+  font-size: 0.8rem !important; 
+}
+.date {
+  font-size: 0.6rem !important;
+}
+.moodText {
+  font-size: 0.9rem !important;
+}
+.moodRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.moodIcon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
 }
 
+/*~*~*~*~*~*~ ADD ENTRY *~*~*~*~*~*~*/
+
+.entryFormCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.formHeader {
+  font-family: "MonteCarlo", cursive;
+}
+.entryFormCard input, 
+.entryFormCard textarea {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--contrast);
+}
+
+/*~*~*~*~*~*~ VIEW ENTRY *~*~*~*~*~*~*/
+
+.detailsCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.contentCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+
+/*~*~*~*~*~*~ DELETE ENTRY MODAL *~*~*~*~*~*~*/
+
+.foxgloveDeleteModal {
+  background: rgba(92, 102, 87, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+.deleteModalTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.deleteModalText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.foxgloveDeleteModal .btn {
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.foxgloveDeleteModal .btn-light {
+  background-color: #f4f4f6;
+  border: 1px solid #f4f4f6;
+  color: #111;
+}
+.foxgloveDeleteModal .btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.foxgloveDeleteModal .btn-outline-light:hover,
+.foxgloveDeleteModal .btn-outline-light:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.modal-backdrop.show {
+  opacity: 0.45;
+}
+
+
+/*~*~*~*~*~*~ ADMIN *~*~*~*~*~*~*/
+
+.adminFlourish {
+  color: var(--highlight);
+}
+.statCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.stat-item {
+  border-bottom: 1px solid var(--border);
+}
 .stat-item:last-child {
   border-bottom: none;
 }
@@ -142,8 +280,8 @@ body {
     border-bottom: none;
     border-right: 1px solid #d8d8d8;
   }
-
   .stat-item:last-child {
     border-right: none;
   }
 }
+

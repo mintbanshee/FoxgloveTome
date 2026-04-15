@@ -14,20 +14,20 @@ unset($_SESSION['success']);
     <div class="row justify-content-center">
         <div class="col-lg-8">
 
-            <div class="card shadow-sm">
+            <div class="entryFormCard card shadow-sm">
                 <div class="card-body p-4">
 
-                    <h2 class="mb-4 text-center">New Journal Entry</h2>
+                    <h1 class="formHeader mb-4 text-center">New Journal Entry</h1>
 
                     <form id="entryForm" action="<?= BASE_URL ?>controllers/entry_controller.php?action=create" method="POST">
                         <input type="hidden" name="action" value="create">
 
-                        <div class="mb-3">
+                        <div class="mb-3 text-muted">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" id="title" name="title" class="form-control" required>
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 text-muted">
                             <label for="content" class="form-label">Entry</label>
                             <textarea id="content" name="content" rows="8" class="form-control" required></textarea>
                         </div>
@@ -59,7 +59,7 @@ unset($_SESSION['success']);
 
                         <!-- Mood dropdown -->
                         <div class="mb-4">
-                            <label for="mood" class="form-label">Select your mood:</label>
+                            <p class="fw-semibold mb-3">Select your mood:</p>
                             <select id="mood" name="mood" class="form-select" required disabled>
                                 <option value="">-- Choose a category first --</option>
                             </select>

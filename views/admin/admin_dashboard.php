@@ -30,19 +30,19 @@ $username = $_SESSION['user']['username'];
 
 <!-- Welcome Message and User Info -->
 
-    <div class="text-center">
-        <p class="mb-2 text-muted"><sub>⟡</sub>☾<sup>⟡</sup></p>
-        <h1>The Keepers of the Tome</h1>
-        <h3 class="text-muted">Sanctuary Control</h3>
-        <p class="mt-3 mb-2 text-muted">✦ ━━ ⟡ ━━ ✦</p>
+    <div class="mb-4 text-center">
+        <p class="adminFlourish mb-2"><sub>⟡</sub>☾<sup>⟡</sup></p>
+        <h1 class="montecarlo-regular mb-2 fw-bold">The Keepers of the Tome</h1>
+        <h4 class="text-muted">Sanctuary Control</h4>
+        <p class="adminFlourish mt-3 mb-2">✦ ━━ ⟡ ━━ ✦</p>
 
-        <p>Welcome back, Keeper <?= htmlspecialchars($username) ?></p>
-        <p>Thank you for helping us make Foxglove a better place for everyone!</p>
+        <p class="text-muted mb-3">Welcome back, Keeper <?= htmlspecialchars($username) ?></p>
+        <p class="text-muted mb-3">Thank you for helping us make Foxglove a better place for everyone!</p>
     </div>
 
 
 <!-- App Stats -->
-<div class="card p-0 overflow-hidden">
+<div class="statCard card p-0 overflow-hidden">
   <div class="row g-0 text-center">
 
     <div class="col-12 col-md-4 stat-item">
@@ -75,11 +75,11 @@ $username = $_SESSION['user']['username'];
 
   <div class="d-flex flex-wrap justify-content-center gap-3">
 
-    <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">
+    <a href="#" class="btn btn-outline-success rounded-pill px-4 mt-3">
       Manage Users
     </a>
 
-    <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">
+    <a href="#" class="btn btn-outline-success rounded-pill px-4 mt-3">
       Manage Moods
     </a>
 

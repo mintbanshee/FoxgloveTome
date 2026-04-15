@@ -3,6 +3,7 @@
 <?php 
 require_once __DIR__ . '/../../auth/require_login.php';
 require_once __DIR__ . '/../../models/JournalEntry.php';
+require_once __DIR__ . '/../../models/MoodIcons.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -46,8 +47,8 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
 <!-- Welcome Message and User Info -->
 
     <div class="mb-4 text-center">
-        <h1>My Dashboard</h1>
-        <p>Welcome back, <?= htmlspecialchars($username) ?></p>
+        <h1 class="montecarlo-regular mb-2 fw-bold">My Dashboard</h1>
+        <p class="text-muted mb-3">Welcome back, <?= htmlspecialchars($username) ?></p>
         <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
         <a href="<?= BASE_URL ?>controllers/admin_controller.php?action=sanctuaryControl" 
         class="btn btn-outline-success rounded-pill px-4">
@@ -57,11 +58,12 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
     </div>
 
 <!-- Weekly Mood Summary -->
-    <div class="card mb-4">
+    <div class="summaryCard mb-4 py-3 shadow-sm">
         <div class="card-body text-center">
-            <h5 class="card-title">Weekly Mood Summary</h5>
+        <h4 class="montecarlo-regular card-title mb-2">Weekly Mood Summary</h4>
+        <p class="flourish mb-2"><sub>⟡</sub><sup>⟡</sup></p>
 
-            <!-- display the dominant mood for this week -->
+            <!-- display the dominant mood for this week and pull a quote from the array -->
             <?php if (!empty($summary['dominantMood'])): ?>
                 <p class="text-muted">
                     This week, you have been feeling mostly <?= htmlspecialchars($summary['dominantMood']) ?>.
@@ -83,7 +85,7 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
     </div>
 
 <!-- Recent Journal Entries -->
-    <h3>My Journal</h3>
+    <h3 class="montecarlo-regular mb-3 fw-bold">My Journal</h3>
     <?php if (empty($entries)): ?>
         <div class="alert alert-light border">
             You have no journal entries yet. Start by creating your first entry!
@@ -94,12 +96,24 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
             <?php foreach ($entries as $entry): ?>
                 <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=view_entry&id=<?= $entry['entry_id'] ?>" class="text-decoration-none text-dark">
                 
-                    <div class="card mb-3">
+                   <div class="entryCard px-2 py-1 mb-3 shadow-sm">
                         <div class="card-body">
-                            <p class="text-muted"><?= htmlspecialchars($entry['date_created']) ?></p>
-                            <h5 class="mt-2"><?= htmlspecialchars($entry['title']) ?></h5>
-                            <span><?= htmlspecialchars($entry['mood']) ?></span>
-                            <p><?= substr(htmlspecialchars($entry['content']), 0, 120) ?>...</p>
+                            <small class="date text-muted fst-italic d-block mb-2"><?= htmlspecialchars($entry['date_created']) ?></small>
+                            <h5 class="title montecarlo-regular card-title mb-2"><?= htmlspecialchars($entry['title']) ?></h5>
+                            
+                            <!-- display the mood with an icon -->
+                            <?php $iconPath = getMoodIcon($entry['mood_category']); ?>
+                                <p class="moodRow mb-1 text-muted">
+                                    <span class="moodText"><?= htmlspecialchars($entry['mood']) ?></span>
+                                        <?php if (!empty($iconPath)): ?>
+                                        <img
+                                            src="<?= htmlspecialchars($iconPath) ?>"
+                                            alt="<?= htmlspecialchars($entry['mood_category']) ?>"
+                                            class="moodIcon">
+                                    <?php endif; ?>
+                                </p>
+
+                            <p class="description text-muted fs-6 fst-italic text-truncate"><?= substr(htmlspecialchars($entry['content']), 0, 120) ?>...</p>
                         </div>
                     </div>
                 </a>

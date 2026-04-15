@@ -29,10 +29,10 @@ foreach ($monthlyEntries as $entry) {
             $weeklyFlowers[] = '🌿';
             break;
         case 'Wilted':
-            $weeklyFlowers[] = '🍂';
+            $weeklyFlowers[] = BASE_URL . 'assets/images/flowers/Chrysanthemum300.png';
             break;
         case 'Prickly':
-            $weeklyFlowers[] = '🌵';
+            $weeklyFlowers[] = BASE_URL . 'assets/images/flowers/Petunia300.png';
             break;
     }
 
@@ -41,11 +41,13 @@ foreach ($monthlyEntries as $entry) {
 ?>
 
 <div id="gardenIntro" class="container py-5">
-    <h1 class="text-center mb-2">My Garden</h1>
-    <p class="text-center">
-        A visual mood tracker based on your logged moods. Each flower represents a mood entry from the past month.<br>
+    <h1 class="formHeader text-center mb-3">My Garden</h1>
+    <p class="text-center mb-3">
         Watch your garden bloom as you nurture it with your thoughts and feelings!
     </p>
+    <small class="text-muted d-block text-center mb-4">
+        Each planter represents a week in the month and grows a flower for your average mood category 🌸</small>
+
 
     <?php if (empty($weeklyFlowers)): ?>
         <div class="alert alert-light border text-center mt-4">
@@ -54,22 +56,37 @@ foreach ($monthlyEntries as $entry) {
     <?php else: ?>
 
     <div id="gardenSnapshot" class="garden">
-
         <div class="gardenPlants">
             <?php $position = 1; ?>
             <?php foreach ($weeklyFlowers as $flower): ?>
 
-            <div class="gardenPlant pos<?= $position ?>">
-                <span class="flower"><?= $flower ?></span>
-            </div>
+                <?php
+                $flowerClass = '';
 
-            <?php $position++; ?>
-        <?php endforeach; ?>
+                if (str_contains($flower, 'Chrysanthemum.png')) {
+                    $flowerClass = 'flower-wilted';
+                } elseif (str_contains($flower, 'BlackPetunia.png')) {
+                    $flowerClass = 'flower-prickly';
+                }
+                ?>
+
+                <div class="gardenPlant pos<?= $position ?> <?= $flowerClass ?>">
+                    <?php if (str_contains($flower, '.png')): ?>
+                        <img src="<?= htmlspecialchars($flower) ?>" alt="Mood flower" class="flower flowerImage">
+                    <?php else: ?>
+                        <span class="flower"><?= htmlspecialchars($flower) ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <?php $position++; ?>
+            <?php endforeach; ?>
         </div>
     </div>
-
+    
     <?php endif; ?>
 </div>
+
+<!-- bottom nav -->
 
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
@@ -89,6 +106,7 @@ foreach ($monthlyEntries as $entry) {
 <!-- script to save garden image -->
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const saveBtn = document.getElementById('saveGardenBtn');
@@ -110,7 +128,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
-
-
 
 <?php include __DIR__ . '/../footer.php'; ?>

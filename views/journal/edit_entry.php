@@ -7,15 +7,15 @@ include __DIR__ . '/../header.php';
     <div class="row justify-content-center">
         <div class="col-lg-8">
 
-            <div class="card shadow-sm">
+            <div class="entryFormCard card shadow-sm">
                 <div class="card-body p-4">
 
-                    <h2 class="mb-4 text-center">Edit Journal Entry</h2>
+                    <h1 class="formHeader mb-4 text-center">Edit Journal Entry</h1>
 
                     <form action="<?= BASE_URL ?>controllers/entry_controller.php?action=update_entry" method="POST">
                       <input type="hidden" name="entry_id" value="<?= $entry['entry_id'] ?>">
 
-                        <div class="mb-3">
+                        <div class="mb-3 text-muted">
                             <label for="title" class="form-label">Title</label>
                             <input 
                               type="text" 
@@ -26,7 +26,7 @@ include __DIR__ . '/../header.php';
                               required>
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 text-muted">
                             <label for="content" class="form-label">Entry</label>
                             <textarea 
                             id="content" 
@@ -76,7 +76,7 @@ include __DIR__ . '/../header.php';
 
                         <!-- Mood dropdown -->
                         <div class="mb-4">
-                            <label for="mood" class="form-label">Select your mood:</label>
+                            <p class="fw-semibold mb-3">Select your mood:</p>
                             <select id="mood" name="mood" class="form-select" required>
                                 <option value="<?= htmlspecialchars($entry['mood']) ?>" selected>
                                     <?= htmlspecialchars($entry['mood']) ?>
@@ -119,8 +119,8 @@ include __DIR__ . '/../header.php';
 const moodOptions = {
     Blooming: ["Joyful", "Hopeful", "Excited", "Proud", "Loved", "Happy", "Optimistic", "Accomplished", "Strong", "Confident", "Inspired"],
     Rooted: ["Calm", "Grounded", "Content", "Peaceful", "Stable", "Grateful", "Focused", "Resilient", "Balanced", "Secure", "Safe"],
-    Wilted: ["Sad", "Drained", "Lonely", "Heavy", "Tired", "Disappointed", "Hopeless", "Discouraged", "Vulnerable", "Confused", "Helpless"],
-    Prickly: ["Anxious", "Frustrated", "Overwhelmed", "Restless", "Irritated", "Stressed", "Agitated", "Traumatized", "Nervous", "Uncomfortable"]
+    Wilted: ["Sad", "Drained", "Lonely", "Heavy", "Scared", "Tired", "Disappointed", "Hopeless", "Discouraged", "Vulnerable", "Confused", "Helpless"],
+    Prickly: ["Anxious", "Angry", "Frustrated", "Overwhelmed", "Restless", "Irritated", "Stressed", "Agitated", "Traumatized", "Nervous", "Uncomfortable"]
 };
 
 // mood category and selection

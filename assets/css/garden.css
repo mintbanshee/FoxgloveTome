@@ -24,6 +24,8 @@
 .gardenPlant {
   position: absolute;
   transform: translateX(-50%);
+  width: auto;
+  height: auto;
 }
 
 /* flower style */
@@ -34,16 +36,31 @@
   text-align: center;
 }
 
-.gardenPlant {
-  position: absolute;
-  width: auto;
-  height: auto;
+.flowerImage {
+    width: 125px;
+    height: auto;
+    display: block;
 }
 
 /* 🌿 your 4 fixed positions */
-.pos1 { left: 60px; top: 412px; }  /* bottom left pot */
-.pos2 { left: 310px; top: 495px; }  /* bottom right pot */
-.pos3 { left: 88px; top: 235px; }  /* top left pot */
-.pos4 { left: 285px; top: 320px; }  /* top right pot */
+.pos1 { left: 70px; top: 363px; }  /* bottom left pot */
+.pos2 { left: 290px; top: 450px; }  /* bottom right pot */
+.pos3 { left: 95px; top: 182px; }  /* top left pot */
+.pos4 { left: 290px; top: 265px; }  /* top right pot */
 
-
+/* chrysanthemum tweaks */
+.flower-wilted {
+  margin-left: 0;
+  margin-top: 200px;
+}
+.flower-wilted .flowerImage {
+  width: 105px;
+}
+/* petunia tweaks */
+.flower-prickly {
+  margin-left: 6px;
+  margin-top: 8px;
+}
+.flower-prickly .flowerImage {
+  width: 95px;
+}
