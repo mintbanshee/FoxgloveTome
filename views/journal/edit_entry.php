@@ -93,7 +93,7 @@ include __DIR__ . '/../header.php';
     </a>
 
 
-    <button type="submit" class="btn btn-light btn-outline-primary rounded-pill px-4">
+    <button type="submit" class="btn btn-light btn-outline-success rounded-pill px-4">
         Save Entry
     </button>
 

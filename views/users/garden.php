@@ -63,9 +63,9 @@ foreach ($monthlyEntries as $entry) {
                 <?php
                 $flowerClass = '';
 
-                if (str_contains($flower, 'Chrysanthemum.png')) {
+                if (str_contains($flower, 'Chrysanthemum')) {
                     $flowerClass = 'flower-wilted';
-                } elseif (str_contains($flower, 'BlackPetunia.png')) {
+                } elseif (str_contains($flower, 'Petunia')) {
                     $flowerClass = 'flower-prickly';
                 }
                 ?>
