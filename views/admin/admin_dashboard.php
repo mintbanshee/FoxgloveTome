@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../../auth/require_login.php'; 
+require_once __DIR__ . '/../../auth/require_admin.php'; 
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -75,7 +75,8 @@ $username = $_SESSION['user']['username'];
 
   <div class="d-flex flex-wrap justify-content-center gap-3">
 
-    <a href="#" class="btn btn-outline-success rounded-pill px-4 mt-3">
+    <a href="<?= BASE_URL ?>controllers/admin_controller.php?action=manageUsers" 
+      class="btn btn-outline-success rounded-pill px-4 mt-3">
       Manage Users
     </a>
 

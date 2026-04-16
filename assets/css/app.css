@@ -29,6 +29,12 @@ body {
     background: var(--hover);
 }
 
+.btn-xs {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  line-height: 1.2;
+}
+
 /*~*~*~*~*~*~ BOTTOM NAV *~*~*~*~*~*~*/
 
 .navbar-bottom {
@@ -257,7 +263,7 @@ body {
 }
 
 
-/*~*~*~*~*~*~ ADMIN *~*~*~*~*~*~*/
+/*~*~*~*~*~*~ ADMIN DASHBOARD *~*~*~*~*~*~*/
 
 .adminFlourish {
   color: var(--highlight);
@@ -285,3 +291,19 @@ body {
   }
 }
 
+/*~*~*~*~*~*~ MANAGER USERS *~*~*~*~*~*~*/
+
+.userCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.userCard strong {
+  font-weight: 600;
+}
+.userCard h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}

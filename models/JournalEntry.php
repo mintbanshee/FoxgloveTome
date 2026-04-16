@@ -111,10 +111,25 @@ class JournalEntry {
 
   // get total number of journal entries for the entire app
   public function getTotalEntries(): int {
-    $sql = "SELECT COUNT(*) FROM journalEntries";
+    $sql = "SELECT COUNT(*) 
+            FROM journalEntries";
+            
     $statement = $this->conn->query($sql);
     return (int) $statement->fetchColumn();
   }
+
+  // get total number of journal entries for a specific user
+  public function getEntryCountByUser(int $userId): int {
+    $sql = "SELECT COUNT(*) 
+            FROM journalEntries 
+            WHERE user_id = :user_id";
+
+    $statement = $this->conn->prepare($sql);
+    $statement->bindValue(':user_id', $userId, PDO::PARAM_INT);
+    $statement->execute();
+
+    return (int) $statement->fetchColumn();
+}
 
   // get the most common mood across all journal entries
   public function getMostCommonMood(): ?string {
@@ -137,6 +152,7 @@ class JournalEntry {
     $moodCounts = []; // how often each mood is logged in the past week
     $dominantMood = null; // start with no dominant mood
     $dominantCategory = null; // start with no dominant category
+    $selectedQuote = null; // start with no selected quote
 
     $oneWeekAgo = strtotime('-7 days'); // 7 days for the week 
 

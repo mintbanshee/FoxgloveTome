@@ -140,7 +140,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
 
             // if admin - send to admin dashboard 
             if (($_SESSION['user']['role'] ?? '') === 'admin') {
-                header('Location: ' . BASE_URL . 'views/admin/admin_dashboard.php');
+                header('Location: ' . BASE_URL . 'views/users/user_dashboard.php');
                 exit();
             }
 

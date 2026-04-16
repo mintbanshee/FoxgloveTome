@@ -62,3 +62,39 @@
 .flower-prickly .flowerImage {
   width: 95px;
 }
+
+/* Image saved confirmation modal */
+
+.gardenModal {
+  background: rgba(92, 102, 87, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+.gardenModal .btn {
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.gardenModal .btn-light {
+  background-color: #f4f4f6;
+  border: 1px solid #f4f4f6;
+  color: #111;
+}
+.gardenModal .btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.gardenModal .btn-outline-light:hover,
+.gardenModal .btn-outline-light:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.modal-backdrop.show {
+  opacity: 0.45;
+}
