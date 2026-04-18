@@ -144,6 +144,19 @@ class JournalEntry {
     return $result ? $result['mood'] : '-';
   }
 
+  // get the most common category across all journal entries
+  public function getMostCommonCategory(): ?string {
+    $sql = "SELECT mood_category, COUNT(*) AS count
+            FROM journalEntries
+            GROUP BY mood_category
+            ORDER BY count DESC
+            LIMIT 1";
+
+    $statement = $this->conn->query($sql);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['mood_category'] : '-';
+  }
+
   // get weekly mood stats for the weekly mood summary 
   public function getWeeklyMoodSummary(int $userID): array {
     $entries = $this->getEntriesByUser($userID);

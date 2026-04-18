@@ -47,15 +47,16 @@ include __DIR__ . '/../header.php';
     <?php endif; ?>
 </div>
 
+<!-- Bottom Nav --> 
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-success rounded-pill px-4"
+    <a class="btn btn-light btn-outline-primary rounded-pill px-4"
        href="<?= BASE_URL ?>controllers/admin_controller.php?action=sanctuaryControl">
         Sanctuary Control
     </a>
 
-    <a class="btn btn-light btn-outline-primary rounded-pill px-4"
+    <a class="btn btn-light btn-outline-success rounded-pill px-4"
        href="<?= BASE_URL ?>views/users/user_dashboard.php">
         My Dashboard
     </a>

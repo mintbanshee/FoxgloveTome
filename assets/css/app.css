@@ -307,3 +307,63 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+/*~*~*~*~*~*~ MANAGER MOODS *~*~*~*~*~*~*/
+
+.moodCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.bloomingPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #ffffd1;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.rootedPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #e2ffdc;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.wiltedPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #e4f6f7;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.pricklyPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #ddcee5;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/*~*~*~*~*~*~ MANAGE QUOTES *~*~*~*~*~*~*/
+
+.quotesCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}

@@ -80,7 +80,7 @@ $username = $_SESSION['user']['username'];
       Manage Users
     </a>
 
-    <a href="#" class="btn btn-outline-success rounded-pill px-4 mt-3">
+    <a href="<?= BASE_URL ?>controllers/admin_controller.php?action=manageMoods" class="btn btn-outline-success rounded-pill px-4 mt-3">
       Manage Moods
     </a>
 
@@ -88,7 +88,7 @@ $username = $_SESSION['user']['username'];
 
 </div>
 
-
+<!-- Bottom Nav -->
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 

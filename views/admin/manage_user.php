@@ -79,13 +79,22 @@ include __DIR__ . '/../header.php';
         </div>
     </div>
     
-    <div class="mt-3">
-        <a href="<?= BASE_URL ?>controllers/admin_controller.php?action=manageUsers"
-           class="btn btn-outline-secondary rounded-pill">
-            Back
-        </a>
-        
-    </div>
-</div>
+<!-- Bottom Nav --> 
+
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+  <div class="container-fluid justify-content-around align-items-center">
+
+    <a class="btn btn-light btn-outline-primary rounded-pill px-4" 
+        href="<?= BASE_URL ?>controllers/admin_controller.php?action=manageUsers">
+        Back to List
+    </a>
+
+    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
+        href="<?= BASE_URL ?>views/users/user_dashboard.php">
+        My Dashboard
+    </a>
+
+  </div>
+</nav>
 
 <?php include __DIR__ . '/../footer.php'; ?>

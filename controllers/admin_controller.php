@@ -77,4 +77,25 @@ switch ($action) {
 
         default:
             exit('Unknown admin action.'); 
+
+        // 
+    case 'manageMoods':
+        $journalEntry = new JournalEntry();
+
+        $mostCommonMood = $journalEntry->getMostCommonMood();
+        $mostCommonCategory = $journalEntry->getMostCommonCategory();
+
+        require_once __DIR__ . '/../views/admin/manage_moods.php';
+        exit();
+
+    case 'manageMoodsLists':
+
+
+        require_once __DIR__ . '/../views/admin/manage_moods_lists.php';
+        exit();
+
+    case 'manageQuotes':
+
+    require_once __DIR__ . '/../views/admin/manage_quotes.php';
+    exit();
 }
