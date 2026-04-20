@@ -75,10 +75,6 @@ switch ($action) {
         header("Location: " . BASE_URL . "controllers/admin_controller.php?action=editUser&id=" . $userId);
         exit();    
 
-        default:
-            exit('Unknown admin action.'); 
-
-        // 
     case 'manageMoods':
         $journalEntry = new JournalEntry();
 
@@ -90,12 +86,28 @@ switch ($action) {
 
     case 'manageMoodsLists':
 
+        /* this feature is currently just for viewing the lists, 
+        but in the future we could add functionality to add/edit/delete 
+        them here as well */ 
 
         require_once __DIR__ . '/../views/admin/manage_moods_lists.php';
         exit();
 
     case 'manageQuotes':
+        $summaryQuotes = require __DIR__ . '/../config/quotes.php';
 
-    require_once __DIR__ . '/../views/admin/manage_quotes.php';
-    exit();
+        $selectedCategory = $_GET['category'] ?? 'Blooming';
+
+        if (!array_key_exists($selectedCategory, $summaryQuotes)) {
+            $selectedCategory = 'Blooming';
+        }
+
+        $categoryQuotes = $summaryQuotes[$selectedCategory];
+
+        require_once __DIR__ . '/../views/admin/manage_quotes.php';
+        exit();
+
+
+        default:
+            exit('Unknown admin action.'); 
 }

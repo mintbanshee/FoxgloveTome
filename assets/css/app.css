@@ -291,7 +291,7 @@ body {
   }
 }
 
-/*~*~*~*~*~*~ MANAGER USERS *~*~*~*~*~*~*/
+/*~*~*~*~*~*~ MANAGE USERS *~*~*~*~*~*~*/
 
 .userCard {
   background: var(--background);
@@ -308,7 +308,8 @@ body {
   font-weight: 600;
 }
 
-/*~*~*~*~*~*~ MANAGER MOODS *~*~*~*~*~*~*/
+
+/*~*~*~*~*~*~ MOODS LIST *~*~*~*~*~*~*/
 
 .moodCard {
   background: var(--background);
@@ -366,4 +367,28 @@ body {
   border: 1px solid var(--detail);
   box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
   font-size: 0.8rem;
+}
+.btn-blooming {
+    background-color: #fff3cd;
+    border: 1px solid #ffe69c;
+    color: #856404;
+}
+.btn-rooted {
+    background-color: #e6f4ec;
+    border: 1px solid #cce3d6;
+    color: #2e7d5b;
+}
+.btn-wilted {
+    background-color: #e0f2f1;
+    border: 1px solid #b2dfdb;
+    color: #2c7a7b;
+}
+.btn-prickly {
+    background-color: #f3e8ff;
+    border: 1px solid #e0cfff;
+    color: #6b4f7d;
+}
+.category-btn.active {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1) inset;
+    font-weight: 600;
 }

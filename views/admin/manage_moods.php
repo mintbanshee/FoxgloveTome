@@ -39,22 +39,24 @@ include __DIR__ . '/../header.php';
 
 <!-- Show Mood Stats -->
 
-<div class="statCard card p-0 overflow-hidden">
-  <div class="row g-0 text-center">
+<div class="d-flex text-center justify-content-center mb-4">
+  <div class="statCard card p-0 overflow-hidden w-100" style="max-width: 500px;">
+    <div class="row g-0">
 
-      <div class="col-12 col-md-4 stat-item">
+      <div class="col-6 moodStat p-2 border-end">
         <div class="p-3">
           <h4><?= htmlspecialchars((string) ($mostCommonMood ?? '—')) ?></h4>
           <p class="text-muted mb-0">Most Common Mood</p>
         </div>
       </div>
 
-      <div class="col-12 col-md-4 stat-item">
+      <div class="col-6 moodStat p-2">
         <div class="p-3">
           <h4><?= htmlspecialchars((string) ($mostCommonCategory ?? '—')) ?></h4>
           <p class="text-muted mb-0">Most Common Category</p>
         </div>
       </div>
+    </div>
   </div>
 </div>
 

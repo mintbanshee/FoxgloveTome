@@ -3,11 +3,21 @@ require_once __DIR__ . '/../../auth/require_login.php';
 include __DIR__ . '/../header.php';
 ?>
 
-<!-- clear any previous messages -->
-<?php
-unset($_SESSION['error']);
-unset($_SESSION['success']);
-?>
+<!-- Error & Success Flash Messages -->
+
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?= htmlspecialchars($_SESSION['success']) ?>
+        </div>
+    <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['error'])): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= htmlspecialchars($_SESSION['error']) ?>
+        </div>
+    <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
 
 
 <div class="container py-5">

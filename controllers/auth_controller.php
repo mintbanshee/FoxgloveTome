@@ -48,7 +48,7 @@ $action = filter_input(INPUT_POST, 'action') ?? filter_input(INPUT_GET, 'action'
             $stmt->execute(['email' => $email]);
 
             if ($stmt->fetch()) {
-                $errors[] = "It looks like this email already has a place within the tome. <a href='?action=login'>Try logging in</a>";
+                $errors[] = "It looks like this email already has a place within the tome. Try logging in.";
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 

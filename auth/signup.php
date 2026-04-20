@@ -16,7 +16,7 @@ include __DIR__ . '/../views/header.php';
 <?php if (!empty($errors)): ?>
     <ul>
         <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
+            <li><?= htmlspecialchars($error) ?></li>
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
