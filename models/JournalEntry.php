@@ -167,11 +167,12 @@ class JournalEntry {
     $dominantCategory = null; // start with no dominant category
     $selectedQuote = null; // start with no selected quote
 
-    $oneWeekAgo = strtotime('-7 days'); // 7 days for the week 
+    $oneWeekAgo = strtotime(date('Y-m-d', strtotime('-7 days'))); // 7 days for the week 
 
     foreach ($entries as $entry) {
+
         // make sure to only include entries from the past 7 days
-        if (strtotime($entry['date_created']) >= $oneWeekAgo) { 
+        if (strtotime(date('Y-m-d', strtotime($entry['date_created']))) >= $oneWeekAgo) {
             $weeklyEntries[] = $entry;
 
             // count the moods in the entries 

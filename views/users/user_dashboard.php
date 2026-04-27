@@ -125,19 +125,19 @@ $quotes = include __DIR__ . '/../../config/quotes.php';
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-3" 
         href="<?= BASE_URL ?>controllers/auth_controller.php?action=logout">
         Logout
     </a>
 
-    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
+    <a class="btn btn-light btn-outline-success rounded-pill px-3" 
         href="<?= BASE_URL ?>views/users/garden.php">
         Garden
     </a>
 
-    <a class="btn btn-light btn-outline-primary rounded-pill px-4" 
-        href="<?= BASE_URL ?>controllers/entry_controller.php?action=create">
-        + New Entry
+    <a class="btn btn-light btn-outline-primary rounded-pill px-3" 
+        href="<?= BASE_URL ?>views/journal/new_entry.php">
+        New Entry
     </a>
 
   </div>

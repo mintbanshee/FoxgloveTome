@@ -32,14 +32,10 @@ include __DIR__ . '/../header.php';
                     <form id="entryForm" action="<?= BASE_URL ?>controllers/entry_controller.php?action=create" method="POST">
                         <input type="hidden" name="action" value="create">
 
+                        <!-- Title -->
                         <div class="mb-3 text-muted">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" id="title" name="title" class="form-control" required>
-                        </div>
-
-                        <div class="mb-4 text-muted">
-                            <label for="content" class="form-label">Entry</label>
-                            <textarea id="content" name="content" rows="8" class="form-control" required></textarea>
                         </div>
 
                         <!-- Select Mood Category -->
@@ -48,19 +44,19 @@ include __DIR__ . '/../header.php';
 
                             <div class="d-flex flex-wrap gap-3 justify-content-center mood-category-icons">
                                 <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Blooming">
-                                    <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="60">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="50">
                                 </button>
 
                                 <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Rooted">
-                                    <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="60">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="50">
                                 </button>
 
                                 <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Wilted">
-                                    <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="60">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="50">
                                 </button>
 
                                 <button type="button" class="mood-icon-btn btn p-0 border-0 bg-transparent" data-category="Prickly">
-                                    <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="60">
+                                    <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="50">
                                 </button>
                             </div>
                         </div>
@@ -75,19 +71,27 @@ include __DIR__ . '/../header.php';
                             </select>
                         </div>
 
+                        <!-- Journal Entry -->
+                        <div class="mb-4 text-muted">
+                            <label for="content" class="form-label">Entry</label>
+                            <textarea id="content" name="content" rows="8" class="form-control" required></textarea>
+                        </div>                         
+
                     </form>
 
-                    <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
+
+<!-- Bottom Nav -->
+<nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-3" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Cancel
     </a>
 
     <button type="submit" 
             form="entryForm"
-            class="btn btn-light btn-outline-success rounded-pill px-4">
+            class="btn btn-light btn-outline-success rounded-pill px-3">
         Save Entry
     </button>
 

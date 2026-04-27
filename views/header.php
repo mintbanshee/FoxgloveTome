@@ -29,11 +29,20 @@ require_once __DIR__ . '/../config/app.php';
     <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
       <img src="<?php echo BASE_URL; ?>assets/logo/FoxgloveTome.svg"
            alt="Foxglove tome logo"
-           width="40" height="40">
+           width="50">
     </a>
 
     <!-- dashboard button (always visible) -->
     <div class="ms-auto">
+      <a href="https://www.nasa.gov/images/" 
+        target="_blank" 
+        class="btn btn-xs btn-outline-light rounded-pill px-2 py-1 opacity-75 m-2">
+        Quick Exit
+      </a>      
+      <a class="btn btn-xs btn-outline-light rounded-pill px-2 m-2 py-1" 
+        href="<?= BASE_URL ?>views/resources.php">
+        Support
+      </a>
       <a href="<?= BASE_URL ?>views/users/user_dashboard.php">
         <img src="<?php echo BASE_URL; ?>assets/images/icons/accountWhite.png"
              alt="Dashboard"

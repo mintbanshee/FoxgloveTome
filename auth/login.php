@@ -18,6 +18,13 @@ include __DIR__ . '/../views/header.php';
       <div class="loginCard p-4">
 
         <h1 class="login-title">Login</h1>
+        <?php if (!empty($errors)): ?>
+            <div class="alert alert-danger">
+                <?php foreach ($errors as $error): ?>
+                    <div><?= htmlspecialchars($error) ?></div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
         <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
 

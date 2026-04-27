@@ -15,6 +15,7 @@ include __DIR__ . '/../header.php';
                     <form action="<?= BASE_URL ?>controllers/entry_controller.php?action=update_entry" method="POST">
                       <input type="hidden" name="entry_id" value="<?= $entry['entry_id'] ?>">
 
+                        <!-- Title -->
                         <div class="mb-3 text-muted">
                             <label for="title" class="form-label">Title</label>
                             <input 
@@ -26,16 +27,6 @@ include __DIR__ . '/../header.php';
                               required>
                         </div>
 
-                        <div class="mb-4 text-muted">
-                            <label for="content" class="form-label">Entry</label>
-                            <textarea 
-                            id="content" 
-                            name="content" 
-                            rows="8" 
-                            class="form-control" 
-                            required><?= htmlspecialchars($entry['content']) ?></textarea>
-                        </div>
-
                         <!-- Select Mood Category -->
                         <div class="mb-4">
                           <p class="fw-semibold mb-3">Select a mood category:</p>
@@ -44,25 +35,25 @@ include __DIR__ . '/../header.php';
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Blooming' ? 'selected' : '' ?>"
                                     data-category="Blooming">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="60">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Blooming.png" alt="Blooming mood category" width="50">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Rooted' ? 'selected' : '' ?>"
                                     data-category="Rooted">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="60">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Rooted.png" alt="Rooted mood category" width="50">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Wilted' ? 'selected' : '' ?>"
                                     data-category="Wilted">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="60">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Wilted.png" alt="Wilted mood category" width="50">
                             </button>
 
                             <button type="button"
                                     class="mood-icon-btn btn p-0 border-0 bg-transparent <?= $entry['mood_category'] === 'Prickly' ? 'selected' : '' ?>"
                                     data-category="Prickly">
-                                <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="60">
+                                <img src="<?= BASE_URL ?>assets/images/categories/Prickly.png" alt="Prickly mood category" width="50">
                             </button>
                         </div>
                     </div>
@@ -84,16 +75,28 @@ include __DIR__ . '/../header.php';
                             </select>
                         </div>
 
+                        <!-- Journal Entry -->
+                        <div class="mb-4 text-muted">
+                            <label for="content" class="form-label">Entry</label>
+                            <textarea 
+                            id="content" 
+                            name="content" 
+                            rows="8" 
+                            class="form-control" 
+                            required><?= htmlspecialchars($entry['content']) ?></textarea>
+                        </div>                        
+
+
+<!-- Bottom Nav -->  
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-danger rounded-pill px-4" 
+    <a class="btn btn-light btn-outline-danger rounded-pill px-3" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Cancel
     </a>
 
-
-    <button type="submit" class="btn btn-light btn-outline-success rounded-pill px-4">
+    <button type="submit" class="btn btn-light btn-outline-success rounded-pill px-3">
         Save Entry
     </button>
 

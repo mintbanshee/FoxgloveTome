@@ -5,14 +5,6 @@ include __DIR__ . '/../views/header.php';
 
 ?>
 
-<?php if (!empty($errors)): ?>
-    <ul>
-        <?php foreach ($errors as $error): ?>
-            <li><?= htmlspecialchars($error) ?></li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
-
 <?php if (!empty($message)): ?>
     <p><?= htmlspecialchars($message) ?></p>
 <?php endif; ?>
@@ -25,6 +17,13 @@ include __DIR__ . '/../views/header.php';
         <div class="loginCard p-4">
 
             <h1 class="login-title mb-4">Forgot Your Password?</h1>
+            <?php if (!empty($errors)): ?>
+                <div class="alert alert-danger">
+                    <?php foreach ($errors as $error): ?>
+                        <div><?= htmlspecialchars($error) ?></div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
             <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password">
     

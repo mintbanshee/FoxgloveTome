@@ -69,17 +69,17 @@ include __DIR__ . '/../header.php';
 
 </div>
 
-
+<!-- Bottom Nav -->
 <nav class="navbar fixed-bottom navbar-sanctuary navbar-dark border-top d-flex align-items-center" style="height:70px;">
   <div class="container-fluid justify-content-around align-items-center">
 
-    <a class="btn btn-light btn-outline-success rounded-pill px-4" 
+    <a class="btn btn-light btn-outline-success rounded-pill px-3" 
         href="<?= BASE_URL ?>views/users/user_dashboard.php">
         Dashboard
     </a>
 
     <button type="button"
-        class="btn btn-light btn-outline-danger rounded-pill px-4 deleteTrigger"
+        class="btn btn-light btn-outline-danger rounded-pill px-3 deleteTrigger"
         data-bs-toggle="modal"
         data-bs-target="#deleteEntryModal"
         data-entry-id="<?= $entry['entry_id'] ?>">
@@ -87,7 +87,7 @@ include __DIR__ . '/../header.php';
     </button>
 
     <a href="<?= BASE_URL ?>controllers/entry_controller.php?action=edit_entry&id=<?= $entry['entry_id'] ?>"
-        class="btn btn-light btn-outline-primary rounded-pill px-4">
+        class="btn btn-light btn-outline-primary rounded-pill px-3">
         Edit Entry
     </a>
 

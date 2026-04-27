@@ -53,10 +53,10 @@ foreach ([1, 2, 3, 4] as $weekNumber) {
 
     switch ($dominantCategory) {
         case 'Blooming':
-            $weeklyFlowers[] = '🌼';
+            $weeklyFlowers[] = BASE_URL . 'assets/images/flowers/BlueIris300.png';
             break;
         case 'Rooted':
-            $weeklyFlowers[] = '🌿';
+            $weeklyFlowers[] = BASE_URL . 'assets/images/flowers/Lavender300.png';
             break;
         case 'Wilted':
             $weeklyFlowers[] = BASE_URL . 'assets/images/flowers/Chrysanthemum300.png';
@@ -111,8 +111,12 @@ foreach ([1, 2, 3, 4] as $weekNumber) {
                      for each flower type through individual classes */
                 if (str_contains($flower, 'Chrysanthemum')) {
                     $flowerClass = 'flower-wilted';
-                } elseif (str_contains($flower, 'Petunia')) {
+                } else if (str_contains($flower, 'Petunia')) {
                     $flowerClass = 'flower-prickly';
+                } else if (str_contains($flower, 'BlueIris')) {
+                    $flowerClass = 'flower-blooming';
+                  } else if (str_contains($flower, 'Lavender')) {
+                    $flowerClass = 'flower-rooted';
                 }
                 ?>
 
@@ -142,18 +146,18 @@ foreach ([1, 2, 3, 4] as $weekNumber) {
   <div class="container-fluid justify-content-around align-items-center">
 
     <?php if (!$isAdminView): ?>
-        <button type="button" id="saveGardenBtn" class="btn btn-light btn-outline-primary rounded-pill px-4">
+        <button type="button" id="saveGardenBtn" class="btn btn-light btn-outline-primary rounded-pill px-3">
             Save Image
         </button>
     <?php endif; ?>
     
     <?php if ($isAdminView): ?>
-        <a class="btn btn-light btn-outline-success rounded-pill px-4"
+        <a class="btn btn-light btn-outline-success rounded-pill px-3"
             href="<?= BASE_URL ?>controllers/admin_controller.php?action=editUser&id=<?= $userId ?>">
             Back to Manage User
         </a>
     <?php else: ?>
-        <a class="btn btn-light btn-outline-success rounded-pill px-4"
+        <a class="btn btn-light btn-outline-success rounded-pill px-3"
             href="<?= BASE_URL ?>views/users/user_dashboard.php">
             Dashboard
         </a>

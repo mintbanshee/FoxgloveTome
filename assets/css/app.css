@@ -35,12 +35,16 @@ body {
   line-height: 1.2;
 }
 
+.alert-danger div {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(92, 17, 96, 0.6)
+}
 /*~*~*~*~*~*~ BOTTOM NAV *~*~*~*~*~*~*/
 
 .navbar-bottom {
   height: 70px;
   display: flex;
-  align-items: center; /* vertical center */
+  align-items: center;
 }
 
 /*~*~*~*~*~*~ TOP NAV *~*~*~*~*~*~*/
@@ -91,6 +95,15 @@ body {
     z-index: 1;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
+.featureTitle {
+    color: var(--callToAct);
+    margin-bottom: 0.5em;
+}
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--contrast) !important;
+}
+
 
 /*~*~*~*~*~*~ MOODS *~*~*~*~*~*~*/
 

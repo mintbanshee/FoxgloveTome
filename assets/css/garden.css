@@ -54,6 +54,7 @@
 }
 .flower-wilted .flowerImage {
   width: 105px;
+  opacity: 0.8;
 }
 /* petunia tweaks */
 .flower-prickly {
@@ -61,6 +62,22 @@
 }
 .flower-prickly .flowerImage {
   width: 95px;
+  opacity: 0.9;
+}
+/* blue iris tweaks */
+.flower-blooming {
+  transform: translateX(-50%) translateY(-50px);
+}
+.flower-blooming .flowerImage {
+  width: 95px;
+  opacity: 0.8;
+}
+/* lavender tweaks */
+.flower-rooted {
+  transform: translateX(-48%) translateY(4px);
+}
+.flower-rooted .flowerImage {
+  width: 140px;
 }
 
 /* Image saved confirmation modal */

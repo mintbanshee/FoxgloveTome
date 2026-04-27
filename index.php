@@ -14,60 +14,68 @@
             </p>
 
             <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login"
-               class="btn btn-light btn-lg rounded-pill px-4 mt-3">
+               class="btn btn-light btn-outline-dark btn-lg rounded-pill px-4 mt-3">
                 Login
             </a>
         </div>
-
     </section>
 </div>
 
-<section class="container py-5 text-center">
-    <h2 class="mb-4">Features</h2>
+<section class="container py-4 text-center">
+    <h2 class="mb-2">Features</h2>
+    <p class="adminFlourish"><sub>⟡</sub>☾<sup>⟡</sup></p>
+    <p class="subtitle text-muted mb-3">
+        A digital sanctuary designed to feel gentle, not overwhelming.
+    </p>
+    <p class="adminFlourish mb-3">✦ ━━ ⟡ ━━ ✦</p>
 
-    <div class="row g-4">
+       <div class="row g-4">
 
         <div class="col-md-4">
-            <h5>Interactive Mood Tracker</h5>
-            <p>Log your mood with your journal entries and watch your garden grow.</p>
-            <p>Each mood corresponds to a unique plant, creating a visual representation of your emotional journey.</p>
+            <h5 class="featureTitle">Write Freely</h5>
+            <p>Capture your thoughts in a private, calming space designed for reflection.</p>
+            <p>Create, edit, and revisit entries as your story unfolds over time.</p>
         </div>
 
         <div class="col-md-4">
-            <h5>Security</h5>
-            <p>A safe, calming space to write freely and reflect on your thoughts.</p>
-            <p>Your entries are personal and protected, your garden belongs only to you.</p>
+            <h5 class="featureTitle">Understand Your Emotions</h5>
+            <p>Select from thoughtfully organized mood categories to describe how you're feeling.</p>
+            <p>Simple, clear, and never overwhelming.</p>
         </div>
 
         <div class="col-md-4">
-            <h5>Mindful Prompts</h5>
-            <p>Receive planting suggestions based on your entered mood to encourage healing.</p>
-            <p>Journal prompts designed to inspire self-reflection and growth.</p>
+            <h5 class="featureTitle">Watch Your Garden Grow</h5>
+            <p>Your emotional journey becomes a living garden.</p>
+            <p>Each week blooms into a hand-crafted flower based on your mood patterns.</p>
+            <p>Each flower is thoughtfully illustrated to reflect its emotional meaning.</p>
         </div>
 
         <div class="col-md-4">
-            <h5>Expansive Garden of Feelings</h5>
-            <p>Cultivate clarity with over 20 moods organized in to 4 categories:</p>
-            <p>Prickly, Wilted, Blooming and Rooted.</p>
+            <h5 class="featureTitle">See Your Weekly Patterns</h5>
+            <p>Receive a gentle summary of your most common mood each week.</p>
+            <p>Paired with thoughtful reflections to guide you forward.</p>
         </div>
 
         <div class="col-md-4">
-            <h5>Calming Environment</h5>
-            <p>A peaceful space where you can express your thoughts and emotions.</p>
-            <p>Designed to not feel overwhelming or cluttered, using negative space and earthy tones to keep a gentle environment.</p>
+            <h5 class="featureTitle">Keep Your Thoughts Safe</h5>
+            <p>Your journal belongs to you.</p>
+            <p>Secure accounts ensure your reflections remain private and protected.</p>
         </div>
 
         <div class="col-md-4">
-            <h5>Inspired by Love</h5>
-            <p>Inspired by "What can I build to help my Mum?"</p>
-            <p>Using her own journey with mental health as a guide, the creator has made the Foxglove Tome a labor of love meant to provide comfort and support to others.</p>
+            <h5 class="featureTitle">Designed for Comfort</h5>
+            <p>A calm, welcoming interface that feels like a sanctuary.</p>
+            <p>Built to be simple, supportive, and easy to return to.</p>
         </div>
+
         <div class="text-center mt-4">
-            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup" class="btn btn-dark btn-lg rounded-pill px-4 mt-3">
-                Sign Up Now
+            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup"
+               class="btn btn-lg btn-outline-dark rounded-pill px-3 mt-1">
+                Begin Your Journey
             </a>
         </div>
 
+    </div>
 </section>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
