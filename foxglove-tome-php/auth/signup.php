@@ -1,0 +1,93 @@
+<?php 
+declare(strict_types=1); 
+
+// *~*~*~*~*~*~* SIGNUP PAGE *~*~*~*~*~*~*
+
+include __DIR__ . '/../views/header.php';
+?>
+
+<!--===========================
+        SIGNUP FORM
+============================-->
+
+<div class="signupBG">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+                <div class="loginCard p-4">
+
+                <!--*~*~*~*   Form Title    *~*~*~*-->
+                    <h1 class="login-title">Create an Account</h1>
+                    <?php if (!empty($errors)): ?>
+                        <div class="alert alert-danger">
+                            <?php foreach ($errors as $error): ?>
+                                <div><?= htmlspecialchars($error) ?></div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=signup">
+    
+                    <div class="mb-3 text-start">
+                        <label class="form-label">First Name</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="optional" value="<?= htmlspecialchars($first ?? '') ?>">
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Last Name</label>
+                        <input  type="text" 
+                            name="last_name" 
+                            class="form-control" 
+                            placeholder="optional" 
+                            value="<?= htmlspecialchars($last ?? '') ?>">
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Username</label>
+                        <input  type="text" 
+                            name="username" 
+                            class="form-control" 
+                            required>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Email</label>
+                        <input  type="email" 
+                            name="email" 
+                            class="form-control" 
+                            value="<?= htmlspecialchars($email ?? '') ?>" 
+                            required>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Password</label>
+                        <input  type="password" 
+                            name="password" 
+                            class="form-control" 
+                            required>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Confirm Password</label>
+                        <input  type="password" 
+                            name="confirm_password" 
+                            class="form-control" 
+                            required>
+                    </div>
+
+                    <button type="submit" class="btn btn-light rounded-pill px-4 mt-4 w-100">Create Account</button>
+        
+                </form>
+
+                <p class="mt-3 mb-1">Already have an account?</p>
+                <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=login"
+                    class="btn btn-outline-light rounded-pill px-4 mt-2 w-100">
+                    Log in
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<?php include __DIR__ . '/../views/footer.php'; ?>

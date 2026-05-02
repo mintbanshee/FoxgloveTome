@@ -1,0 +1,407 @@
+
+
+/*~*~*~*~*~*~ BASE THINGS *~*~*~*~*~*~*/
+
+:root {
+    --background: #fdfbf7;
+    --navbackground: #2e004f;
+    --accentGlow: #9d81a5;
+    --text: #0d1b0e;
+    --highlight: #a2cbb4;
+    --contrast: #4a5d4e;
+    --detail: #2e4033;
+    --callToAct: #6b4f7d;
+    --hover: #e9ecef;
+    --border: #b2babb;
+    --radius: 20px;
+    --scrim: rgba(255, 255, 255, 0.8);
+    --scrim2: rgba(0, 0, 0, 0.6);
+}
+
+.montecarlo-regular {
+    font-family: "MonteCarlo", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    padding-bottom: 70px;
+    background: var(--hover);
+}
+
+.btn-xs {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  line-height: 1.2;
+}
+
+.alert-danger div {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(92, 17, 96, 0.6)
+}
+/*~*~*~*~*~*~ BOTTOM NAV *~*~*~*~*~*~*/
+
+.navbar-bottom {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+/*~*~*~*~*~*~ TOP NAV *~*~*~*~*~*~*/
+
+.navbar-sanctuary {
+    background-color: #2e004f !important;
+}
+.navbar-sanctuary .nav-link,
+.navbar-sanctuary .navbar-brand {
+    color: #ffffff !important;
+}
+.navbar-brand img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/*~*~*~*~*~*~ HOME PAGE *~*~*~*~*~*~*/
+
+#heroSection {
+    background: url("../images/HeroBGDark.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    width: 100%;
+    padding-top: 1em;
+    position: relative;
+}
+#heroSection p {
+    color: var(--detail);
+}
+#heroSection h1 {
+    color: var(--text);
+}
+#welcomeTitle {
+    background: var(--scrim);
+    position: relative;
+    z-index: 1;
+}
+#welcomeMessage {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+.featureTitle {
+    color: var(--callToAct);
+    margin-bottom: 0.5em;
+}
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--contrast) !important;
+}
+
+
+/*~*~*~*~*~*~ MOODS *~*~*~*~*~*~*/
+
+.mood-category-icons .mood-icon-btn {
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mood-category-icons .mood-icon-btn img {
+    border-radius: 50%;
+}
+.mood-category-icons .mood-icon-btn:hover {
+    transform: scale(1.05);
+}
+.mood-category-icons .mood-icon-btn.selected {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px rgba(162, 203, 180, 0.6),
+                0 0 12px rgba(162, 203, 180, 0.5);
+    background: rgba(162, 203, 180, 0.08);
+}
+
+/*~*~*~*~*~*~ AUTH *~*~*~*~*~*~*/
+
+.loginBG {
+    background: url("../images/loginBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.loginCard {
+  background: rgba(46, 64, 51, 0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+.loginCard input{
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+.loginCard input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+.signupBG {
+    background: url("../images/SignUpBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/*~*~*~*~*~*~ USER DASHBOARD *~*~*~*~*~*~*/
+
+.summaryCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.flourish {
+  color: var(--callToAct);
+}
+.entryCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.description {
+  font-size: 0.8rem !important; 
+}
+.date {
+  font-size: 0.6rem !important;
+}
+.moodText {
+  font-size: 0.9rem !important;
+}
+.moodRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.moodIcon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+}
+
+/*~*~*~*~*~*~ ADD ENTRY *~*~*~*~*~*~*/
+
+.entryFormCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.formHeader {
+  font-family: "MonteCarlo", cursive;
+}
+.entryFormCard input, 
+.entryFormCard textarea {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--contrast);
+}
+
+/*~*~*~*~*~*~ VIEW ENTRY *~*~*~*~*~*~*/
+
+.detailsCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.contentCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+
+/*~*~*~*~*~*~ DELETE ENTRY MODAL *~*~*~*~*~*~*/
+
+.foxgloveDeleteModal {
+  background: rgba(92, 102, 87, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+.deleteModalTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.deleteModalText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.foxgloveDeleteModal .btn {
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.foxgloveDeleteModal .btn-light {
+  background-color: #f4f4f6;
+  border: 1px solid #f4f4f6;
+  color: #111;
+}
+.foxgloveDeleteModal .btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.foxgloveDeleteModal .btn-outline-light:hover,
+.foxgloveDeleteModal .btn-outline-light:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.modal-backdrop.show {
+  opacity: 0.45;
+}
+
+
+/*~*~*~*~*~*~ ADMIN DASHBOARD *~*~*~*~*~*~*/
+
+.adminFlourish {
+  color: var(--highlight);
+}
+.statCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--contrast);
+  box-shadow: 1px 1px 3px rgba(16, 36, 19, 0.4) !important;
+}
+.stat-item {
+  border-bottom: 1px solid var(--border);
+}
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .stat-item {
+    border-bottom: none;
+    border-right: 1px solid #d8d8d8;
+  }
+  .stat-item:last-child {
+    border-right: none;
+  }
+}
+
+/*~*~*~*~*~*~ MANAGE USERS *~*~*~*~*~*~*/
+
+.userCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.userCard strong {
+  font-weight: 600;
+}
+.userCard h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+
+/*~*~*~*~*~*~ MOODS LIST *~*~*~*~*~*~*/
+
+.moodCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.bloomingPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #ffffd1;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.rootedPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #e2ffdc;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.wiltedPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #e4f6f7;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.pricklyPill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 999px;
+    background-color: #ddcee5;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/*~*~*~*~*~*~ MANAGE QUOTES *~*~*~*~*~*~*/
+
+.quotesCard {
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--detail);
+  box-shadow: 3px 3px 6px rgba(16, 36, 19, 0.4) !important;
+  font-size: 0.8rem;
+}
+.btn-blooming {
+    background-color: #fff3cd;
+    border: 1px solid #ffe69c;
+    color: #856404;
+}
+.btn-rooted {
+    background-color: #e6f4ec;
+    border: 1px solid #cce3d6;
+    color: #2e7d5b;
+}
+.btn-wilted {
+    background-color: #e0f2f1;
+    border: 1px solid #b2dfdb;
+    color: #2c7a7b;
+}
+.btn-prickly {
+    background-color: #f3e8ff;
+    border: 1px solid #e0cfff;
+    color: #6b4f7d;
+}
+.category-btn.active {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1) inset;
+    font-weight: 600;
+}

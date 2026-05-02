@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# environment variables
+.env
+.env.local
+
+# node (React)
+node_modules/
+
+# logs
+npm-debug.log*

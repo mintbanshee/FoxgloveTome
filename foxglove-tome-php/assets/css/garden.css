@@ -1,0 +1,117 @@
+/* assets/css/garden.css */
+
+.garden {
+  width: 100%;
+  max-width: 380px;
+  min-height: 744px;
+  margin: 0 auto;
+  background-image: url("../images/gardenBG.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* holds flowers */
+.gardenPlants {
+  position: absolute;
+  inset: 0;
+}
+
+/* each flower */
+.gardenPlant {
+  position: absolute;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+}
+
+/* flower style */
+.flower {
+  display: block;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.flowerImage {
+    width: 125px;
+    height: auto;
+    display: block;
+}
+
+/* 🌿 your 4 fixed positions */
+.pos1 { left: 70px; top: 363px; }  /* bottom left pot */
+.pos2 { left: 290px; top: 450px; }  /* bottom right pot */
+.pos3 { left: 90px; top: 182px; }  /* top left pot */
+.pos4 { left: 290px; top: 265px; }  /* top right pot */
+
+/* chrysanthemum tweaks */
+.flower-wilted {
+  transform: translateX(-50%) translateY(-12px);
+}
+.flower-wilted .flowerImage {
+  width: 105px;
+  opacity: 0.8;
+}
+/* petunia tweaks */
+.flower-prickly {
+  transform: translateX(-50%) translateY(22px);
+}
+.flower-prickly .flowerImage {
+  width: 95px;
+  opacity: 0.9;
+}
+/* blue iris tweaks */
+.flower-blooming {
+  transform: translateX(-50%) translateY(-50px);
+}
+.flower-blooming .flowerImage {
+  width: 95px;
+  opacity: 0.8;
+}
+/* lavender tweaks */
+.flower-rooted {
+  transform: translateX(-48%) translateY(4px);
+}
+.flower-rooted .flowerImage {
+  width: 140px;
+}
+
+/* Image saved confirmation modal */
+
+.gardenModal {
+  background: rgba(92, 102, 87, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+.gardenModal .btn {
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.gardenModal .btn-light {
+  background-color: #f4f4f6;
+  border: 1px solid #f4f4f6;
+  color: #111;
+}
+.gardenModal .btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.gardenModal .btn-outline-light:hover,
+.gardenModal .btn-outline-light:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.modal-backdrop.show {
+  opacity: 0.45;
+}
