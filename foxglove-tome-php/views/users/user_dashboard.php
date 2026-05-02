@@ -15,10 +15,11 @@ include __DIR__ . '/../header.php';
 $userId = $_SESSION['user']['user_id'];
 $username = $_SESSION['user']['username'];
 
+$journalEntry = new JournalEntry();
+
 $entries = $journalEntry->getEntriesByUser($userId);
 
 // get the weekly mood summary
-$journalEntry = new JournalEntry();
 $summary = $journalEntry->getWeeklyMoodSummary($userId);
 
 // quotes array for the mood summary section 
