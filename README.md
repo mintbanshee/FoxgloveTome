@@ -84,12 +84,39 @@ https://github.com/user-attachments/assets/5aabd864-6147-47e3-ba65-db983f15e89b
 ### 💻 Login Screen - to show it is both mobile and desktop
 <img width="1499" height="920" alt="Login" src="https://github.com/user-attachments/assets/a299439c-9d62-4ad1-8e6a-6ca5c77e6ca1" />
 
+## 🌱 Stretch Goals
 
+Future plans for The Foxglove Tome include:
+
+- Add an account management page for users to edit their username and account details
+- Complete the admin management features for users, moods, and quotes
+- Add optional journal prompts/ideas through a button on the new entry page
+- Build a seed shop to encourage users to grow real plants, as gardening can support mental wellness
+  - Include an option for seeds curated to users' mood patterns, which is why admins can view user gardens
+- Grow the garden from weekly potted plants into a full garden with a different flower for every mood option
+- Add more support resources by country/region
+- Add the ability to download journal entries for printing, so users can bring them to appointments or support services if needed
+- Add search, sort, and filter options to the user dashboard
+
+## 🤖 AI Usage Breakdown
+
+AI was used as a support tool during development, planning, debugging, and refinement of this project.
+
+AI assistance included:
+
+- Debugging PHP, React, and API integration issues
+- Reviewing code comments for accuracy and clarity
+- Helping identify unused code, inconsistent variables, and cleanup opportunities
+- Supporting README and documentation writing
+- Brainstorming UX wording, feature explanations, and project presentation
+- Assisting with visual concept development and project branding ideas
+
+All code decisions, implementation choices, testing, project structure, final wording, and feature direction were reviewed, selected, and controlled by me.
 
 ## 🚀 Getting Started
 ### PHP Version
 - Place foxglove-tome-php in your local server (e.g., XAMPP htdocs)
-- Import the database
+- - Import the database
 - Update database credentials if needed
 - Navigate to the project in your browser
 - React Version
