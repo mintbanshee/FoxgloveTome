@@ -33,7 +33,7 @@ Built with intention, this project prioritizes clarity, accessibility, and emoti
 - Bootstrap 5
 - JavaScript
 ### React Version (Frontend Rebuild)
-- React (Vite)
+- Next.js
 - TypeScript
 - API integration with PHP backend
 
