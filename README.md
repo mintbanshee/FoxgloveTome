@@ -111,17 +111,17 @@ AI assistance included:
 - Brainstorming UX wording, feature explanations, and project presentation
 - Assisting with visual concept development and project branding ideas
 
-All code decisions, implementation choices, testing, project structure, final wording, and feature direction were reviewed, selected, and controlled by me.
+All final code decisions, implementation choices, testing, project structure, wording, and feature direction were reviewed, adapted, and approved by me.
 
 ## 🚀 Getting Started
 ### PHP Version
 - Place foxglove-tome-php in your local server (e.g., XAMPP htdocs)
-- - Import the database
+- Import the database
 - Update database credentials if needed
 - Navigate to the project in your browser
-- React Version
-- Navigate to foxglove-tome-react
 
+### React Version
+- Navigate to foxglove-tome-react
 - Install dependencies:
     - npm install
 - Run the development server:
