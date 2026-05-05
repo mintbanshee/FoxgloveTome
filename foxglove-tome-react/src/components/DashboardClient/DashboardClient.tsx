@@ -49,18 +49,16 @@ export default function DashboardClient() {
         setEntries(entriesData);
         setSummary(summaryData);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Failed to load dashboard.");
-        }
+        // if dashboard load fails, redirect to login 
+        // (if it fails it is liekly because they are not logged in)
+          router.push("/login");
       } finally {
         setLoading(false);
       }
     }
 
     loadDashboard();
-  }, []);
+  }, [router]);
 
   // *~*~*~*~*~*~* DASHBOARD DISPLAY *~*~*~*~*~*~*
   
