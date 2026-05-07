@@ -16,62 +16,64 @@ include __DIR__ . '/../views/header.php';
 <!--===========================
           LOGIN FORM
 ============================-->
+<main>
+    <div class="loginBG">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-6 col-lg-4">
 
-<div class="loginBG">
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+                    <div class="loginCard p-4">
 
-      <div class="loginCard p-4">
+                    <!--*~*~*~*   Errors    *~*~*~*-->
+                        <h1 class="login-title">Login</h1>
+                        <?php if (!empty($errors)): ?>
+                            <div class="alert alert-danger">
+                                <?php foreach ($errors as $error): ?>
+                                    <div><?= htmlspecialchars($error) ?></div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 
-      <!--*~*~*~*   Errors    *~*~*~*-->
-        <h1 class="login-title">Login</h1>
-        <?php if (!empty($errors)): ?>
-            <div class="alert alert-danger">
-                <?php foreach ($errors as $error): ?>
-                    <div><?= htmlspecialchars($error) ?></div>
-                <?php endforeach; ?>
+                        <!--*~*~*~*   Form Fields   *~*~*~*-->
+                        <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
+
+                            <div class="mb-3 text-start">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-4 text-start">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                            </div>
+
+
+                            <!--*~*~*~*   Buttons    *~*~*~*-->
+                            <button type="submit" class="btn btn-light rounded-pill px-4 mt-2 w-100">
+                                Log In
+                            </button>
+
+                            <p class="mt-4 mb-1">Don’t have an account?</p>
+
+                            
+                            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup"             
+                                class="btn btn-outline-light rounded-pill px-4 mt-3 w-100">
+                                Sign Up
+                            </a>
+                            <p class="mt-4">               
+                            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password" 
+                                class="text-light small text-decoration-underline">
+                                Forgot your password?
+                            </a>
+                            </p>
+
+                        </form>
+
+                    </div>
+                </div>
             </div>
-        <?php endif; ?>
-
-        <!--*~*~*~*   Form Fields   *~*~*~*-->
-        <form method="post" action="<?= BASE_URL ?>controllers/auth_controller.php?action=login">
-
-            <div class="mb-3 text-start">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
-
-            <div class="mb-4 text-start">
-                <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
-
-
-            <!--*~*~*~*   Buttons    *~*~*~*-->
-            <button type="submit" class="btn btn-light rounded-pill px-4 mt-2 w-100">
-                Log In
-            </button>
-
-            <p class="mt-4 mb-1">Don’t have an account?</p>
-
-            
-            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=signup"             
-                class="btn btn-outline-light rounded-pill px-4 mt-3 w-100">
-                Sign Up
-            </a>
-            <p class="mt-4">               
-            <a href="<?= BASE_URL ?>controllers/auth_controller.php?action=forgot_password" 
-                class="text-light small text-decoration-underline">
-                Forgot your password?
-            </a>
-            </p>
-
-        </form>
-
+        </div>
     </div>
-    </div>
-</div>
-</div>
+</main>
 
 <?php include __DIR__ . '/../views/footer.php'; ?>
