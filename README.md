@@ -48,6 +48,16 @@ The Foxglove Tome was created with a focus on:
 
 This project reflects a belief that technology can feel supportive, not stressful.
 
+## ✅ Validation & Testing
+
+The project was manually tested across its core user flows, including authentication, journal CRUD operations, garden visualization, admin functionality, and responsive layouts.
+
+Additional validation included:
+- Next.js production build testing
+- TypeScript compilation checks
+- PHP syntax validation across all project files
+- Lighthouse accessibility, SEO, and best-practice reviews
+
 ## 🎥 Demo
 
 A walkthrough video of the PHP version demonstrating core functionality:
