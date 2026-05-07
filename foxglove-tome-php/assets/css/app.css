@@ -279,7 +279,7 @@ body {
 /*~*~*~*~*~*~ ADMIN DASHBOARD *~*~*~*~*~*~*/
 
 .adminFlourish {
-  color: var(--detail);
+  color: var(--highlight);
 }
 .statCard {
   background: var(--background);
